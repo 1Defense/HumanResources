@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinIceStir Shave Ice - Employee Training Hub</title>
+    <style>
+        /* ===== CSS Reset & Base ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1558b0;
+            --accent: #ff6b6b;
+            --accent-warm: #f59e0b;
+            --bg: #f0f4f8;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --ice-blue: #38bdf8;
+            --ice-purple: #a78bfa;
+            --ice-pink: #f472b6;
+            --radius: 12px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+            --shadow-lg: 0 4px 24px rgba(0,0,0,0.10);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--ice-blue), var(--ice-purple), var(--ice-pink));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .search-box {
+            position: relative;
+            width: 320px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 16px 10px 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box input::placeholder { color: rgba(255,255,255,0.5); }
+        .search-box input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--ice-blue);
+        }
+
+        .search-box .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+        }
+
+        /* ===== Navigation ===== */
+        .nav {
+            display: flex;
+            gap: 2px;
+            padding: 0 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.65);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover { color: rgba(255,255,255,0.9); }
+        .nav-btn.active {
+            color: white;
+            border-bottom-color: var(--ice-blue);
+        }
+
+        .nav-icon { font-size: 1.1rem; }
+
+        /* ===== Main Content ===== */
+        .main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+        .section { display: none; animation: fadeIn 0.3s ease; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Cards ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .card .tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-required { background: #fef2f2; color: var(--danger); }
+        .tag-new { background: #f0fdf4; color: var(--success); }
+        .tag-updated { background: #fffbeb; color: var(--accent-warm); }
+        .tag-video { background: #eff6ff; color: var(--primary); }
+
+        /* ===== Accordion ===== */
+        .accordion { display: flex; flex-direction: column; gap: 8px; }
+
+        .accordion-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s;
+        }
+
+        .accordion-header:hover { background: #f8fafc; }
+
+        .accordion-header .icon { font-size: 1.2rem; }
+
+        .accordion-header h3 {
+            flex: 1;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .accordion-chevron {
+            transition: transform 0.2s;
+            color: var(--text-light);
+        }
+
+        .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.open .accordion-content { max-height: 2000px; }
+
+        .accordion-body {
+            padding: 0 20px 16px 20px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .accordion-body li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .accordion-body li:last-child { border-bottom: none; }
+
+        .accordion-body li .bullet {
+            color: var(--ice-blue);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== Link List ===== */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .link-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateX(4px);
+            border-color: var(--ice-blue);
+        }
+
+        .link-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .link-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .link-item p {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .link-item .arrow {
+            margin-left: auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Contact Cards ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .contact-card .contact-type {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-card .phone {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-card .note {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .emergency-banner .em-icon { font-size: 2rem; }
+
+        .emergency-banner h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .emergency-banner p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* ===== Quick Actions (Dashboard) ===== */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .quick-action {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-action:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .quick-action .qa-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .quick-action h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ===== Welcome Banner ===== */
+        .welcome-banner {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            color: white;
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-banner::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .welcome-banner h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .welcome-banner p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            max-width: 600px;
+        }
+
+        /* ===== Checklist ===== */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 6px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .checklist-item:hover { background: #f8fafc; }
+
+        .checklist-item .checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.15s;
+        }
+
+        .checklist-item.checked .checkbox {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .checklist-item.checked span {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        /* ===== Policy Section Styles ===== */
+        .policy-toc {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .policy-toc h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .policy-toc ol {
+            padding-left: 20px;
+        }
+
+        .policy-toc li {
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+
+        .policy-toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .policy-toc a:hover { text-decoration: underline; }
+
+        /* ===== Search Results ===== */
+        .search-results-info {
+            padding: 12px 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .highlight {
+            background: #fef08a;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-light);
+        }
+
+        .no-results .nr-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+        /* ===== Color Helpers ===== */
+        .bg-blue { background: #eff6ff; }
+        .bg-green { background: #f0fdf4; }
+        .bg-yellow { background: #fffbeb; }
+        .bg-red { background: #fef2f2; }
+        .bg-purple { background: #f5f3ff; }
+        .bg-pink { background: #fdf2f8; }
+        .bg-cyan { background: #ecfeff; }
+        .bg-orange { background: #fff7ed; }
+
+        .text-red { color: var(--danger); }
+        .text-blue { color: var(--primary); }
+        .text-green { color: var(--success); }
+        .text-yellow { color: var(--accent-warm); }
+        .text-purple { color: #7c3aed; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .header-top { flex-direction: column; gap: 12px; text-align: center; }
+            .search-box { width: 100%; }
+            .nav { justify-content: flex-start; padding: 0 12px; }
+            .nav-btn { padding: 10px 14px; font-size: 0.8rem; }
+            .main { padding: 16px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .quick-actions { grid-template-columns: repeat(2, 1fr); }
+            .welcome-banner { padding: 24px 20px; }
+            .welcome-banner h2 { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .quick-actions { grid-template-columns: repeat(2, 1fr); }
+            .nav-btn .nav-label { display: none; }
+            .nav-btn { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-top">
+        <div class="logo-area">
+            <div class="logo-icon">&#127847;</div>
+            <div class="logo-text">
+                <h1>SinIceStir Shave Ice</h1>
+                <p>Employee Training Hub</p>
+            </div>
+        </div>
+        <div class="search-box">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="globalSearch" placeholder="Search guides, policies, links..." autocomplete="off">
+        </div>
+    </div>
+    <nav class="nav" id="mainNav">
+        <button class="nav-btn active" data-section="dashboard">
+            <span class="nav-icon">&#127968;</span>
+            <span class="nav-label">Dashboard</span>
+        </button>
+        <button class="nav-btn" data-section="training">
+            <span class="nav-icon">&#128218;</span>
+            <span class="nav-label">Training Guides</span>
+        </button>
+        <button class="nav-btn" data-section="policies">
+            <span class="nav-icon">&#128220;</span>
+            <span class="nav-label">Policy Manual</span>
+        </button>
+        <button class="nav-btn" data-section="resources">
+            <span class="nav-icon">&#128279;</span>
+            <span class="nav-label">Resources &amp; Videos</span>
+        </button>
+        <button class="nav-btn" data-section="sops">
+            <span class="nav-icon">&#9989;</span>
+            <span class="nav-label">SOPs</span>
+        </button>
+        <button class="nav-btn" data-section="emergency">
+            <span class="nav-icon">&#128680;</span>
+            <span class="nav-label">Emergency</span>
+        </button>
+    </nav>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main">
+
+    <!-- Search Results (shown when searching) -->
+    <div id="searchResults" class="section">
+        <div class="section-header">
+            <h2>Search Results</h2>
+            <p id="searchResultsInfo"></p>
+        </div>
+        <div id="searchResultsList"></div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div id="sec-dashboard" class="section active" data-searchable>
+        <div class="welcome-banner">
+            <h2>Welcome to the SinIceStir Training Hub</h2>
+            <p>Your one-stop shop for training guides, company policies, how-to videos, standard operating procedures, and emergency contacts. Stay informed, stay prepared!</p>
+        </div>
+
+        <div class="section-header">
+            <h2>Quick Access</h2>
+        </div>
+
+        <div class="quick-actions">
+            <div class="quick-action" onclick="navigateTo('training')">
+                <div class="qa-icon">&#128218;</div>
+                <h4>Training Guides</h4>
+            </div>
+            <div class="quick-action" onclick="navigateTo('policies')">
+                <div class="qa-icon">&#128220;</div>
+                <h4>Policy Manual</h4>
+            </div>
+            <div class="quick-action" onclick="navigateTo('resources')">
+                <div class="qa-icon">&#127909;</div>
+                <h4>Videos &amp; Links</h4>
+            </div>
+            <div class="quick-action" onclick="navigateTo('sops')">
+                <div class="qa-icon">&#9989;</div>
+                <h4>SOPs</h4>
+            </div>
+            <div class="quick-action" onclick="navigateTo('emergency')">
+                <div class="qa-icon">&#128680;</div>
+                <h4>Emergency Contacts</h4>
+            </div>
+            <div class="quick-action" onclick="navigateTo('training')">
+                <div class="qa-icon">&#127847;</div>
+                <h4>Ice Cream Machine</h4>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>New Hire Checklist</h2>
+            <p>Track your onboarding progress</p>
+        </div>
+
+        <div id="newHireChecklist">
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Read the Employee Policy Manual</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Complete Food Safety Training</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Watch POS System How-To Video</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Review Shave Ice Preparation SOP</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Learn Ice Cream Machine Operation</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Review Emergency Procedures &amp; Call List</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Complete Opening &amp; Closing Procedures Training</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <div class="checkbox">&#10003;</div>
+                <span>Shadow a shift with a trained team member</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TRAINING GUIDES ===== -->
+    <div id="sec-training" class="section" data-searchable>
+        <div class="section-header">
+            <h2>Training Guides</h2>
+            <p>Step-by-step guides for all station operations and equipment</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" data-keywords="shave ice preparation flavors syrups toppings">
+                <div class="card-icon bg-cyan">&#127847;</div>
+                <h3>Shave Ice Preparation</h3>
+                <p>How to prepare our signature shave ice - from shaving technique to flavor layering, portion sizes, and topping placement.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="ice cream machine soft serve frozen yogurt maintenance cleaning">
+                <div class="card-icon bg-pink">&#127846;</div>
+                <h3>Ice Cream Machine Operation</h3>
+                <p>Complete guide to operating, cleaning, and troubleshooting the soft-serve ice cream machine. Includes daily startup and shutdown procedures.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="pos point of sale register cash card payment orders transactions">
+                <div class="card-icon bg-green">&#128179;</div>
+                <h3>POS System How-To</h3>
+                <p>Learn to process orders, handle payments (cash, card, mobile), apply discounts, process refunds, and close out the register.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="food safety handling temperature ServSafe allergens cross contamination">
+                <div class="card-icon bg-yellow">&#128737;</div>
+                <h3>Food Safety &amp; Handling</h3>
+                <p>Proper food handling, temperature control, allergen awareness, cross-contamination prevention, and handwashing protocols.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="customer service guest experience complaints">
+                <div class="card-icon bg-purple">&#128578;</div>
+                <h3>Customer Service Excellence</h3>
+                <p>Best practices for greeting guests, taking orders, handling complaints, upselling, and creating a great customer experience.</p>
+                <span class="tag tag-new">New</span>
+            </div>
+
+            <div class="card" data-keywords="opening procedures startup prep station checklist morning">
+                <div class="card-icon bg-blue">&#127749;</div>
+                <h3>Opening Procedures</h3>
+                <p>Step-by-step opening checklist including station prep, inventory check, equipment startup, and store readiness.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="closing procedures shutdown cleaning end of day night">
+                <div class="card-icon bg-orange">&#127751;</div>
+                <h3>Closing Procedures</h3>
+                <p>End-of-day shutdown: cleaning stations, shutting down equipment, securing the store, and completing closing reports.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+
+            <div class="card" data-keywords="inventory stock counting ordering supplies restock">
+                <div class="card-icon bg-green">&#128230;</div>
+                <h3>Inventory Management</h3>
+                <p>How to count stock, place orders, receive deliveries, rotate inventory (FIFO), and report shortages.</p>
+                <span class="tag tag-updated">Updated</span>
+            </div>
+
+            <div class="card" data-keywords="cleaning sanitizing sanitation deep clean daily weekly">
+                <div class="card-icon bg-cyan">&#129529;</div>
+                <h3>Cleaning &amp; Sanitation</h3>
+                <p>Daily, weekly, and deep-clean procedures for all work areas, equipment, and restrooms. Includes chemical safety info.</p>
+                <span class="tag tag-required">Required</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== POLICIES ===== -->
+    <div id="sec-policies" class="section" data-searchable>
+        <div class="section-header">
+            <h2>Employee Policy Manual</h2>
+            <p>Company policies, expectations, and guidelines for all SinIceStir team members</p>
+        </div>
+
+        <div class="policy-toc">
+            <h3>Table of Contents</h3>
+            <ol>
+                <li><a href="#" onclick="openAccordionByIndex(0); return false;">Attendance &amp; Scheduling</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(1); return false;">Dress Code &amp; Appearance</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(2); return false;">Workplace Conduct</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(3); return false;">Time Off &amp; Leave</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(4); return false;">Safety &amp; Health</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(5); return false;">Social Media &amp; Confidentiality</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(6); return false;">Compensation &amp; Pay</a></li>
+                <li><a href="#" onclick="openAccordionByIndex(7); return false;">Disciplinary Policy</a></li>
+            </ol>
+        </div>
+
+        <div class="accordion" id="policyAccordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128197;</span>
+                    <h3>Attendance &amp; Scheduling</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> All employees must arrive at least 10 minutes before their scheduled shift to clock in and prepare their station.</li>
+                            <li><span class="bullet">&#8226;</span> Schedule changes require at least 48 hours notice. Contact your shift lead or manager to request changes.</li>
+                            <li><span class="bullet">&#8226;</span> If you will be late or absent, notify your manager as soon as possible - at minimum 2 hours before your shift.</li>
+                            <li><span class="bullet">&#8226;</span> No-call/no-show is considered a serious violation and may result in disciplinary action.</li>
+                            <li><span class="bullet">&#8226;</span> Shift swaps must be pre-approved by a manager and documented in the scheduling system.</li>
+                            <li><span class="bullet">&#8226;</span> Repeated tardiness (3+ instances in 30 days) will result in a written warning.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128085;</span>
+                    <h3>Dress Code &amp; Appearance</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Wear the official SinIceStir uniform shirt during all shifts. Shirts must be clean and in good condition.</li>
+                            <li><span class="bullet">&#8226;</span> Closed-toe, non-slip shoes are required at all times for safety.</li>
+                            <li><span class="bullet">&#8226;</span> Hair must be tied back and secured. Hair nets or hats are required when handling food.</li>
+                            <li><span class="bullet">&#8226;</span> Minimal jewelry only - no dangling earrings, bracelets, or rings (except plain wedding bands).</li>
+                            <li><span class="bullet">&#8226;</span> Nails must be short, clean, and free of nail polish when handling food (gloves must be worn).</li>
+                            <li><span class="bullet">&#8226;</span> Name tags must be worn and visible at all times.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#129309;</span>
+                    <h3>Workplace Conduct</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Treat all customers, coworkers, and managers with respect and professionalism.</li>
+                            <li><span class="bullet">&#8226;</span> Harassment, discrimination, or bullying of any kind will not be tolerated and will result in immediate action.</li>
+                            <li><span class="bullet">&#8226;</span> Personal cell phone use is prohibited during active shift hours. Phones must be stored in the designated area.</li>
+                            <li><span class="bullet">&#8226;</span> No use of drugs or alcohol on premises. Arriving under the influence is grounds for immediate termination.</li>
+                            <li><span class="bullet">&#8226;</span> Maintain a positive, team-oriented attitude. Ask for help when needed and offer help to teammates.</li>
+                            <li><span class="bullet">&#8226;</span> Report any safety concerns or policy violations to management immediately.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#127796;</span>
+                    <h3>Time Off &amp; Leave</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Time-off requests must be submitted at least 2 weeks in advance through the scheduling system.</li>
+                            <li><span class="bullet">&#8226;</span> Requests are approved based on business needs and staffing availability.</li>
+                            <li><span class="bullet">&#8226;</span> Sick leave: notify your manager as early as possible. A doctor's note may be required for absences of 3+ consecutive days.</li>
+                            <li><span class="bullet">&#8226;</span> Holiday scheduling is based on seniority and rotation to ensure fairness.</li>
+                            <li><span class="bullet">&#8226;</span> Unpaid leave may be granted for qualifying personal or family emergencies with manager approval.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#129657;</span>
+                    <h3>Safety &amp; Health</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Report all injuries, no matter how minor, to your manager immediately.</li>
+                            <li><span class="bullet">&#8226;</span> Know the location of the first aid kit, fire extinguisher, and emergency exits.</li>
+                            <li><span class="bullet">&#8226;</span> Wet floor signs must be placed immediately after any spill. Clean up spills right away.</li>
+                            <li><span class="bullet">&#8226;</span> Never operate equipment you have not been trained on.</li>
+                            <li><span class="bullet">&#8226;</span> Wash hands frequently: before handling food, after using the restroom, after handling trash, and after touching your face.</li>
+                            <li><span class="bullet">&#8226;</span> Do not come to work if you are experiencing symptoms of illness (fever, vomiting, diarrhea, etc.).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128241;</span>
+                    <h3>Social Media &amp; Confidentiality</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Do not post negative content about SinIceStir, coworkers, or customers on social media.</li>
+                            <li><span class="bullet">&#8226;</span> Recipes, supplier information, and business strategies are confidential. Do not share with anyone outside the company.</li>
+                            <li><span class="bullet">&#8226;</span> Only authorized personnel may post on official SinIceStir social media accounts.</li>
+                            <li><span class="bullet">&#8226;</span> If you'd like to share positive work content on personal social media, please get manager approval first.</li>
+                            <li><span class="bullet">&#8226;</span> Customer information (names, contact details, payment info) must never be shared or discussed outside of work.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128176;</span>
+                    <h3>Compensation &amp; Pay</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> Pay periods are bi-weekly. Direct deposit is available and encouraged.</li>
+                            <li><span class="bullet">&#8226;</span> You must clock in and out accurately for every shift. Do not clock in early or forget to clock out.</li>
+                            <li><span class="bullet">&#8226;</span> Overtime must be pre-approved by management. Unauthorized overtime may result in disciplinary action.</li>
+                            <li><span class="bullet">&#8226;</span> Tips are pooled and distributed based on hours worked during the shift.</li>
+                            <li><span class="bullet">&#8226;</span> Pay discrepancies should be reported to management within 5 business days of the pay date.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#9888;</span>
+                    <h3>Disciplinary Policy</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">&#8226;</span> <strong>Step 1:</strong> Verbal warning - documented conversation with manager.</li>
+                            <li><span class="bullet">&#8226;</span> <strong>Step 2:</strong> Written warning - formal documentation of issue and expectations for improvement.</li>
+                            <li><span class="bullet">&#8226;</span> <strong>Step 3:</strong> Final written warning/suspension - last chance before termination.</li>
+                            <li><span class="bullet">&#8226;</span> <strong>Step 4:</strong> Termination - employment is ended.</li>
+                            <li><span class="bullet">&#8226;</span> Serious violations (theft, violence, drug use, harassment) may result in immediate termination regardless of prior warnings.</li>
+                            <li><span class="bullet">&#8226;</span> All employees have the right to discuss disciplinary actions with a higher-level manager if they feel the action was unfair.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== RESOURCES & VIDEOS ===== -->
+    <div id="sec-resources" class="section" data-searchable>
+        <div class="section-header">
+            <h2>Resources &amp; Videos</h2>
+            <p>Helpful links, how-to videos, and external resources for your role</p>
+        </div>
+
+        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">&#127909; How-To Videos</h3>
+        <div class="link-list" style="margin-bottom: 28px;">
+            <a href="#" class="link-item" data-keywords="ice cream machine soft serve operation how to video">
+                <div class="link-icon bg-pink">&#127846;</div>
+                <div>
+                    <h4>Ice Cream Machine - Operation Guide</h4>
+                    <p>Step-by-step video on daily startup, operation, and shutdown of the soft-serve machine</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="pos system register point of sale how to video tutorial">
+                <div class="link-icon bg-green">&#128179;</div>
+                <div>
+                    <h4>POS System Tutorial</h4>
+                    <p>Complete walkthrough of our point-of-sale system: orders, payments, refunds, and reports</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="shave ice making preparation flavors how to video">
+                <div class="link-icon bg-cyan">&#127847;</div>
+                <div>
+                    <h4>Shave Ice Making - From Block to Bowl</h4>
+                    <p>Watch how to properly shave ice, layer flavors, and present the perfect shave ice</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="food safety handling ServSafe training video">
+                <div class="link-icon bg-yellow">&#128737;</div>
+                <div>
+                    <h4>Food Safety Essentials</h4>
+                    <p>Required food safety training covering temperature control, cross-contamination, and hygiene</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="cleaning sanitizing equipment daily routine video">
+                <div class="link-icon bg-blue">&#129529;</div>
+                <div>
+                    <h4>Daily Cleaning Routine</h4>
+                    <p>Watch the proper cleaning and sanitizing procedures for all equipment and work areas</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+        </div>
+
+        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">&#128279; Useful Links</h3>
+        <div class="link-list">
+            <a href="#" class="link-item" data-keywords="schedule shift work hours timetable">
+                <div class="link-icon bg-purple">&#128197;</div>
+                <div>
+                    <h4>Employee Scheduling Portal</h4>
+                    <p>View your schedule, request time off, and swap shifts</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="payroll pay stub direct deposit paychecks">
+                <div class="link-icon bg-green">&#128176;</div>
+                <div>
+                    <h4>Payroll &amp; Pay Stubs</h4>
+                    <p>Access your pay stubs, tax documents, and direct deposit settings</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="health department food permit license inspection">
+                <div class="link-icon bg-red">&#127973;</div>
+                <div>
+                    <h4>Health Department Resources</h4>
+                    <p>Local health department guidelines, inspection checklists, and food handler permit info</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="benefits insurance employee perks discount">
+                <div class="link-icon bg-orange">&#127873;</div>
+                <div>
+                    <h4>Employee Benefits &amp; Perks</h4>
+                    <p>Information about your benefits, employee discounts, and company perks</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="#" class="link-item" data-keywords="suggestion feedback idea improvement box">
+                <div class="link-icon bg-cyan">&#128172;</div>
+                <div>
+                    <h4>Employee Suggestion Box</h4>
+                    <p>Share your ideas for improving operations, products, or the work environment</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ===== SOPs ===== -->
+    <div id="sec-sops" class="section" data-searchable>
+        <div class="section-header">
+            <h2>Standard Operating Procedures</h2>
+            <p>Detailed step-by-step procedures for all critical tasks</p>
+        </div>
+
+        <div class="accordion" id="sopAccordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#127847;</span>
+                    <h3>SOP: Shave Ice Preparation</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> Wash hands and put on food-safe gloves.</li>
+                            <li><span class="bullet">2.</span> Inspect the shave ice machine blade - ensure it is sharp and properly positioned.</li>
+                            <li><span class="bullet">3.</span> Load ice block into the machine according to the machine operation guide.</li>
+                            <li><span class="bullet">4.</span> Shave ice into the cup/bowl using steady, even pressure. Fill to the top and pack gently to form a dome shape.</li>
+                            <li><span class="bullet">5.</span> Apply flavored syrups evenly - start from the top and work around all sides so the entire surface is covered.</li>
+                            <li><span class="bullet">6.</span> For combo flavors, apply each flavor to its own section.</li>
+                            <li><span class="bullet">7.</span> Add toppings as ordered (condensed milk, mochi, fresh fruit, etc.).</li>
+                            <li><span class="bullet">8.</span> Insert spoon/straw, place on serving tray, and serve to customer with a smile!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#127846;</span>
+                    <h3>SOP: Ice Cream Machine - Daily Operation</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> <strong>Startup:</strong> Turn on machine at least 30 minutes before service begins.</li>
+                            <li><span class="bullet">2.</span> Check mix levels in the hopper - refill if below the fill line.</li>
+                            <li><span class="bullet">3.</span> Run a small test dispense into a waste cup to check consistency and temperature.</li>
+                            <li><span class="bullet">4.</span> Verify temperature display reads between 18-21&deg;F (-8 to -6&deg;C).</li>
+                            <li><span class="bullet">5.</span> <strong>During Service:</strong> Monitor mix levels hourly. Refill as needed.</li>
+                            <li><span class="bullet">6.</span> If machine beeps or displays an error code, refer to the troubleshooting guide posted on the machine.</li>
+                            <li><span class="bullet">7.</span> <strong>Shutdown:</strong> At closing, switch to "Standby" mode (do NOT turn off completely unless instructed).</li>
+                            <li><span class="bullet">8.</span> Wipe down all exterior surfaces with food-safe sanitizer.</li>
+                            <li><span class="bullet">9.</span> <strong>Weekly Deep Clean:</strong> Full disassembly and cleaning per the manufacturer's guide (scheduled by manager).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128179;</span>
+                    <h3>SOP: POS System - Processing Orders</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> Greet the customer and ask for their order.</li>
+                            <li><span class="bullet">2.</span> Select the correct item category on the POS screen (Shave Ice, Ice Cream, Drinks, etc.).</li>
+                            <li><span class="bullet">3.</span> Choose the size, flavors, and toppings as specified by the customer.</li>
+                            <li><span class="bullet">4.</span> Confirm the order on screen and read it back to the customer.</li>
+                            <li><span class="bullet">5.</span> Select payment method: Cash, Credit/Debit Card, or Mobile Pay.</li>
+                            <li><span class="bullet">6.</span> <strong>For cash:</strong> Enter amount tendered, count change back to customer.</li>
+                            <li><span class="bullet">7.</span> <strong>For card:</strong> Have customer insert/tap/swipe. Wait for approval.</li>
+                            <li><span class="bullet">8.</span> Offer receipt (print or digital). Thank the customer!</li>
+                            <li><span class="bullet">9.</span> <strong>Refunds:</strong> Manager approval required. Use the "Refund" function under the order history menu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#127749;</span>
+                    <h3>SOP: Store Opening Procedure</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> Arrive 30 minutes before opening. Disarm alarm system and unlock doors.</li>
+                            <li><span class="bullet">2.</span> Turn on all lights, HVAC, and music system.</li>
+                            <li><span class="bullet">3.</span> Perform a walk-through of the entire store checking for anything unusual.</li>
+                            <li><span class="bullet">4.</span> Start up the ice cream machine and shave ice equipment.</li>
+                            <li><span class="bullet">5.</span> Check and restock all syrup bottles, toppings, cups, lids, and utensils.</li>
+                            <li><span class="bullet">6.</span> Verify cash register starting drawer ($150 starting bank - count and confirm).</li>
+                            <li><span class="bullet">7.</span> Turn on the POS system and verify it's connected/operational.</li>
+                            <li><span class="bullet">8.</span> Clean and sanitize all prep surfaces and customer-facing areas.</li>
+                            <li><span class="bullet">9.</span> Set up any outdoor signage or displays.</li>
+                            <li><span class="bullet">10.</span> Open doors at scheduled time. You're ready to serve!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#127751;</span>
+                    <h3>SOP: Store Closing Procedure</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> Stop accepting new orders 10 minutes before closing time.</li>
+                            <li><span class="bullet">2.</span> Serve any remaining customers and thank them for visiting.</li>
+                            <li><span class="bullet">3.</span> Lock the front doors at closing time.</li>
+                            <li><span class="bullet">4.</span> Switch ice cream machine to standby mode.</li>
+                            <li><span class="bullet">5.</span> Clean and break down all stations: shave ice, toppings bar, and service counter.</li>
+                            <li><span class="bullet">6.</span> Wash, sanitize, and store all utensils, containers, and equipment.</li>
+                            <li><span class="bullet">7.</span> Cover and refrigerate all perishable toppings and supplies.</li>
+                            <li><span class="bullet">8.</span> Sweep and mop all floor areas. Wipe down all surfaces.</li>
+                            <li><span class="bullet">9.</span> Run the end-of-day report on POS. Count and reconcile the cash drawer.</li>
+                            <li><span class="bullet">10.</span> Take out trash and recycling. Replace trash bags.</li>
+                            <li><span class="bullet">11.</span> Turn off music, lights, and HVAC. Arm the alarm system and lock up.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128721;</span>
+                    <h3>SOP: Handling Customer Complaints</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> <strong>Listen</strong> - Let the customer explain their concern fully without interrupting.</li>
+                            <li><span class="bullet">2.</span> <strong>Empathize</strong> - Acknowledge their frustration: "I understand, and I'm sorry about that."</li>
+                            <li><span class="bullet">3.</span> <strong>Apologize</strong> - Offer a sincere apology regardless of who is at fault.</li>
+                            <li><span class="bullet">4.</span> <strong>Resolve</strong> - Offer to remake the item or provide a reasonable solution.</li>
+                            <li><span class="bullet">5.</span> If the customer is still unsatisfied or the situation escalates, calmly involve a manager.</li>
+                            <li><span class="bullet">6.</span> Never argue with a customer or raise your voice.</li>
+                            <li><span class="bullet">7.</span> Document the complaint and resolution in the shift log for manager review.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="icon">&#128167;</span>
+                    <h3>SOP: Spill &amp; Cleanup Procedure</h3>
+                    <span class="accordion-chevron">&#9660;</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <ul>
+                            <li><span class="bullet">1.</span> Immediately place a "Wet Floor" sign near the spill area.</li>
+                            <li><span class="bullet">2.</span> If needed, redirect customers away from the spill zone.</li>
+                            <li><span class="bullet">3.</span> Put on gloves. Use paper towels or a mop to absorb and clean the spill.</li>
+                            <li><span class="bullet">4.</span> Apply sanitizer solution and wipe the area clean.</li>
+                            <li><span class="bullet">5.</span> Dry the floor completely before removing the wet floor sign.</li>
+                            <li><span class="bullet">6.</span> If the spill involved a chemical or cleaning agent, consult the SDS (Safety Data Sheet) binder.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== EMERGENCY ===== -->
+    <div id="sec-emergency" class="section" data-searchable>
+        <div class="section-header">
+            <h2>Emergency Information</h2>
+            <p>Emergency contacts, procedures, and critical information</p>
+        </div>
+
+        <div class="emergency-banner">
+            <div class="em-icon">&#9888;</div>
+            <div>
+                <h3>In case of a life-threatening emergency, call 911 immediately.</h3>
+                <p>Then notify your manager as soon as it is safe to do so.</p>
+            </div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-type text-red">&#128680; Emergency Services</div>
+                <h4>Police / Fire / Ambulance</h4>
+                <div class="phone">&#128222; 911</div>
+                <div class="note">For all life-threatening emergencies</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-red">&#128680; Poison Control</div>
+                <h4>National Poison Control Center</h4>
+                <div class="phone">&#128222; 1-800-222-1222</div>
+                <div class="note">For chemical exposure or ingestion emergencies</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-purple">&#128100; Store Owner</div>
+                <h4>Store Owner / Operator</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">Primary contact for business decisions and emergencies</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-blue">&#128188; General Manager</div>
+                <h4>General Manager</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">Day-to-day operations and staff issues</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-blue">&#128188; Shift Lead</div>
+                <h4>On-Duty Shift Lead</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">First point of contact during your shift</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-green">&#127973; Health Department</div>
+                <h4>Local Health Department</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">Food safety concerns and health inspections</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-yellow">&#128295; Equipment Repair</div>
+                <h4>Equipment Service Company</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">Ice cream machine, shave ice machine, or other equipment breakdowns</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-yellow">&#9889; Utilities</div>
+                <h4>Power / Water / Gas</h4>
+                <div class="phone">&#128222; (___) ___-____</div>
+                <div class="note">For utility outages or gas leak emergencies (evacuate first if gas leak)</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 28px;">
+            <div class="section-header">
+                <h2>Emergency Procedures Quick Reference</h2>
+            </div>
+
+            <div class="accordion" id="emergencyAccordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">&#128293;</span>
+                        <h3>Fire Emergency</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span class="bullet">1.</span> Alert everyone in the store: shout "FIRE!" and activate the fire alarm if available.</li>
+                                <li><span class="bullet">2.</span> Evacuate all customers and staff through the nearest exit. Do NOT use elevators.</li>
+                                <li><span class="bullet">3.</span> Call 911 once safely outside.</li>
+                                <li><span class="bullet">4.</span> If the fire is small and contained, trained staff may use a fire extinguisher (PASS method: Pull, Aim, Squeeze, Sweep).</li>
+                                <li><span class="bullet">5.</span> Meet at the designated assembly point (parking lot, across street, etc.).</li>
+                                <li><span class="bullet">6.</span> Do NOT re-enter the building until cleared by fire department.</li>
+                                <li><span class="bullet">7.</span> Contact the store owner/manager immediately.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">&#129656;</span>
+                        <h3>Medical Emergency / Injury</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span class="bullet">1.</span> Assess the situation. If serious, call 911 immediately.</li>
+                                <li><span class="bullet">2.</span> Do not move an injured person unless they are in immediate danger.</li>
+                                <li><span class="bullet">3.</span> Retrieve the first aid kit (located near the office/break area).</li>
+                                <li><span class="bullet">4.</span> For minor cuts/burns: clean the wound, apply bandage, and document in the incident log.</li>
+                                <li><span class="bullet">5.</span> For allergic reactions: ask the person if they have an EpiPen and help them use it if needed. Call 911.</li>
+                                <li><span class="bullet">6.</span> Notify the manager on duty and complete an incident report.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">&#127754;</span>
+                        <h3>Severe Weather / Natural Disaster</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span class="bullet">1.</span> Monitor weather alerts on your phone or the store radio.</li>
+                                <li><span class="bullet">2.</span> If a severe weather warning is issued, move all customers and staff to the safest area of the building (interior room, away from windows).</li>
+                                <li><span class="bullet">3.</span> Secure any outdoor items (signs, chairs, etc.) if time permits.</li>
+                                <li><span class="bullet">4.</span> Do not leave the building during severe weather.</li>
+                                <li><span class="bullet">5.</span> Contact the store owner for guidance on whether to close early.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">&#128274;</span>
+                        <h3>Robbery / Security Threat</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span class="bullet">1.</span> Stay calm. Do NOT resist or try to be a hero.</li>
+                                <li><span class="bullet">2.</span> Comply with the robber's demands. Your safety is more important than money.</li>
+                                <li><span class="bullet">3.</span> Try to observe and remember details: appearance, clothing, voice, direction they left.</li>
+                                <li><span class="bullet">4.</span> Call 911 as soon as it is safe to do so.</li>
+                                <li><span class="bullet">5.</span> Lock the doors and do not let anyone leave (they may be witnesses).</li>
+                                <li><span class="bullet">6.</span> Do not touch anything the robber may have touched.</li>
+                                <li><span class="bullet">7.</span> Contact the store owner immediately.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon">&#9889;</span>
+                        <h3>Power Outage</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span class="bullet">1.</span> Remain calm and reassure customers.</li>
+                                <li><span class="bullet">2.</span> Use flashlights (stored in the office) - do NOT use candles.</li>
+                                <li><span class="bullet">3.</span> Do NOT open freezers or refrigerators unless absolutely necessary (keep cold air in).</li>
+                                <li><span class="bullet">4.</span> If POS is down, do not accept card payments. Cash only or pause service.</li>
+                                <li><span class="bullet">5.</span> Contact the utility company and the store owner.</li>
+                                <li><span class="bullet">6.</span> If power is not restored within 1 hour, consult manager about closing the store.</li>
+                                <li><span class="bullet">7.</span> Check food temperatures once power is restored. Discard any items above safe temperature thresholds.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- ===== Footer ===== -->
+<footer style="text-align: center; padding: 32px 24px; color: var(--text-light); font-size: 0.82rem; border-top: 1px solid var(--border); margin-top: 40px;">
+    <p>&copy; 2026 SinIceStir Shave Ice &mdash; Employee Training Hub</p>
+    <p style="margin-top: 4px;">Questions? Contact your manager or shift lead.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // ===== Navigation =====
+    function navigateTo(sectionId) {
+        // Clear search
+        document.getElementById('globalSearch').value = '';
+        document.getElementById('searchResults').classList.remove('active');
+
+        // Update nav buttons
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.section === sectionId);
+        });
+
+        // Show/hide sections
+        document.querySelectorAll('.section[data-searchable]').forEach(sec => {
+            sec.classList.toggle('active', sec.id === 'sec-' + sectionId);
+        });
+    }
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.addEventListener('click', () => navigateTo(btn.dataset.section));
+    });
+
+    // ===== Accordion =====
+    function toggleAccordion(header) {
+        const item = header.parentElement;
+        item.classList.toggle('open');
+    }
+
+    function openAccordionByIndex(index) {
+        const items = document.querySelectorAll('#policyAccordion .accordion-item');
+        if (items[index]) {
+            items.forEach(item => item.classList.remove('open'));
+            items[index].classList.add('open');
+            items[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    // ===== Checklist =====
+    function toggleCheck(item) {
+        item.classList.toggle('checked');
+        saveChecklist();
+    }
+
+    function saveChecklist() {
+        const states = [];
+        document.querySelectorAll('#newHireChecklist .checklist-item').forEach(item => {
+            states.push(item.classList.contains('checked'));
+        });
+        try { localStorage.setItem('sinIceStir_checklist', JSON.stringify(states)); } catch(e) {}
+    }
+
+    function loadChecklist() {
+        try {
+            const saved = JSON.parse(localStorage.getItem('sinIceStir_checklist'));
+            if (saved) {
+                document.querySelectorAll('#newHireChecklist .checklist-item').forEach((item, i) => {
+                    if (saved[i]) item.classList.add('checked');
+                });
+            }
+        } catch(e) {}
+    }
+
+    loadChecklist();
+
+    // ===== Global Search =====
+    const searchInput = document.getElementById('globalSearch');
+    const searchResultsSection = document.getElementById('searchResults');
+    const searchResultsList = document.getElementById('searchResultsList');
+    const searchResultsInfo = document.getElementById('searchResultsInfo');
+
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+
+        if (query.length < 2) {
+            searchResultsSection.classList.remove('active');
+            // Show the last active section
+            const activeNav = document.querySelector('.nav-btn.active');
+            if (activeNav) {
+                const secId = 'sec-' + activeNav.dataset.section;
+                document.getElementById(secId).classList.add('active');
+            }
+            return;
+        }
+
+        // Hide all main sections, show search results
+        document.querySelectorAll('.section[data-searchable]').forEach(sec => sec.classList.remove('active'));
+        searchResultsSection.classList.add('active');
+
+        const results = [];
+
+        // Search cards
+        document.querySelectorAll('.card').forEach(card => {
+            const text = (card.textContent + ' ' + (card.dataset.keywords || '')).toLowerCase();
+            if (text.includes(query)) {
+                results.push({
+                    type: 'Training Guide',
+                    title: card.querySelector('h3').textContent,
+                    desc: card.querySelector('p').textContent,
+                    section: 'training',
+                    icon: card.querySelector('.card-icon').innerHTML
+                });
+            }
+        });
+
+        // Search accordion items
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(query)) {
+                const parentSection = item.closest('.section');
+                let sectionName = 'SOPs';
+                if (parentSection && parentSection.id === 'sec-policies') sectionName = 'Policy';
+                if (parentSection && parentSection.id === 'sec-emergency') sectionName = 'Emergency';
+                results.push({
+                    type: sectionName,
+                    title: item.querySelector('h3').textContent,
+                    desc: getFirstContentLine(item),
+                    section: parentSection ? parentSection.id.replace('sec-', '') : 'sops',
+                    icon: item.querySelector('.icon').innerHTML
+                });
+            }
+        });
+
+        // Search link items
+        document.querySelectorAll('.link-item').forEach(link => {
+            const text = (link.textContent + ' ' + (link.dataset.keywords || '')).toLowerCase();
+            if (text.includes(query)) {
+                results.push({
+                    type: 'Resource',
+                    title: link.querySelector('h4').textContent,
+                    desc: link.querySelector('p').textContent,
+                    section: 'resources',
+                    icon: link.querySelector('.link-icon').innerHTML
+                });
+            }
+        });
+
+        // Search contact cards
+        document.querySelectorAll('.contact-card').forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(query)) {
+                results.push({
+                    type: 'Emergency Contact',
+                    title: card.querySelector('h4').textContent,
+                    desc: card.querySelector('.note') ? card.querySelector('.note').textContent : '',
+                    section: 'emergency',
+                    icon: '&#128680;'
+                });
+            }
+        });
+
+        // Render results
+        searchResultsInfo.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + this.value.trim() + '"';
+
+        if (results.length === 0) {
+            searchResultsList.innerHTML = '<div class="no-results"><div class="nr-icon">&#128269;</div><h3>No results found</h3><p>Try a different search term</p></div>';
+        } else {
+            searchResultsList.innerHTML = results.map(r =>
+                '<div class="link-item" style="cursor:pointer" onclick="navigateTo(\'' + r.section + '\')">' +
+                    '<div class="link-icon bg-blue">' + r.icon + '</div>' +
+                    '<div><div style="font-size:0.7rem;font-weight:600;text-transform:uppercase;color:var(--text-light);margin-bottom:2px;">' + r.type + '</div>' +
+                    '<h4>' + r.title + '</h4>' +
+                    '<p style="font-size:0.82rem;color:var(--text-light);">' + r.desc + '</p></div>' +
+                    '<span class="arrow">&#8250;</span></div>'
+            ).join('');
+        }
+    });
+
+    function getFirstContentLine(accordionItem) {
+        const li = accordionItem.querySelector('.accordion-body li');
+        return li ? li.textContent.trim().substring(0, 100) + '...' : '';
+    }
+
+    // ===== Keyboard shortcut: Escape clears search =====
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
+        }
+        if (e.key === '/' && document.activeElement !== searchInput) {
+            e.preventDefault();
+            searchInput.focus();
+        }
+    });
+</script>
+
+</body>
+</html>
