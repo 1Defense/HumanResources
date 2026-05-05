@@ -6,19 +6,19 @@
     <title>SinIceStir Shave Ice - Employee Training Hub</title>
     <style>
         @font-face {
-            font-family: 'Sheepman';
-            src: url('SheepmanRegular-font.woff2') format('woff2'),
-                 url('SheepmanRegular-font.woff') format('woff');
+            font-family: 'SheepmanRegular';
+            src: url('SheepmanRegular-font.woff2?v=20260505a') format('woff2'),
+                 url('SheepmanRegular-font.woff?v=20260505a') format('woff');
             font-weight: 400;
             font-style: normal;
             font-display: swap;
         }
 
         @font-face {
-            font-family: 'Sheepman';
-            src: url('SheepmanBold-font.woff2') format('woff2'),
-                 url('SheepmanBold-font.woff') format('woff');
-            font-weight: 700;
+            font-family: 'SheepmanBold';
+            src: url('SheepmanBold-font.woff2?v=20260505a') format('woff2'),
+                 url('SheepmanBold-font.woff?v=20260505a') format('woff');
+            font-weight: 400;
             font-style: normal;
             font-display: swap;
         }
@@ -55,8 +55,19 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Sheepman', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        h1, h2, h3, h4,
+        .logo-text h1,
+        .section-header h2,
+        .welcome-banner h2,
+        .card h3,
+        .accordion-header h3,
+        .link-item h4,
+        .contact-card h4,
+        .quick-action h4,
+        .policy-toc h3,
+        .emergency-banner h3 {
+            font-family: 'SheepmanBold', 'SheepmanRegular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            font-weight: 400 !important;
         }
 
         /* ===== Header ===== */
