@@ -273,6 +273,64 @@
         .tag-updated { background: #fffbeb; color: var(--accent-warm); }
         .tag-video { background: #eff6ff; color: var(--primary); }
 
+        /* ===== Card detail (expandable training notes) ===== */
+        .card-detail {
+            margin-top: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+        }
+        .card-detail > summary {
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary, #2563eb);
+            list-style: none;
+            padding: 4px 0;
+        }
+        .card-detail > summary::-webkit-details-marker { display: none; }
+        .card-detail > summary::before {
+            content: "▸ ";
+            display: inline-block;
+            transition: transform 0.15s;
+        }
+        .card-detail[open] > summary::before { content: "▾ "; }
+        .card-detail h4 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 6px;
+        }
+        .card-detail p {
+            font-size: 0.85rem;
+            margin: 6px 0;
+        }
+        .card-detail ul, .card-detail ol {
+            font-size: 0.85rem;
+            margin: 6px 0 8px 18px;
+            line-height: 1.5;
+        }
+        .card-detail li { margin: 3px 0; }
+        .card-detail code {
+            background: var(--bg-soft, #f7f7f9);
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-size: 0.82rem;
+        }
+
+        /* ===== Pay-period explainer panel (inside Compensation accordion) ===== */
+        .pay-period-explainer {
+            margin-top: 14px;
+            padding: 14px;
+            background: var(--bg-soft, #f7f7f9);
+            border-left: 3px solid var(--primary, #2563eb);
+            border-radius: 6px;
+        }
+        .pay-period-explainer h4 {
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+        .pay-period-explainer h4:first-child { margin-top: 0; }
+
         /* ===== Accordion ===== */
         .accordion { display: flex; flex-direction: column; gap: 8px; }
 
@@ -809,70 +867,262 @@
     <div id="sec-training" class="section" data-searchable>
         <div class="section-header">
             <h2>Training Guides</h2>
-            <p>Step-by-step guides for all station operations and equipment</p>
+            <p>Your path from trainee to certified Shave Ice Artist. Master each module to unlock the next level of expertise. Content drawn from the SinIceStir Shave Ice Artist Training Manual (V1.2).</p>
+        </div>
+
+        <div class="training-journey" style="margin: 16px 0 28px 0; padding: 16px; background: var(--bg-soft, #f7f7f9); border-radius: 12px;">
+            <h3 style="margin-bottom: 8px;">Training Journey</h3>
+            <p style="margin-bottom: 12px;"><strong>Module 1 &mdash; Foundations</strong> &middot; Onboarding, Brand Duality, Guest Philosophy &amp; Policies (6 checklist items)<br>
+            <strong>Module 2 &mdash; Product Mastery</strong> &middot; Ice Science, Tempering, Machine Specs &amp; Flavor Menu (6 checklist items)<br>
+            <strong>Module 3 &mdash; Daily Operations</strong> &middot; Opening, Closing, Rush Workflow &amp; Clean-As-You-Go (3 checklist items)<br>
+            <strong>Module 4 &mdash; Health &amp; Safety</strong> &middot; Hygiene, Food Safety, Deep Cleaning &amp; Emergency Procedures (5 checklist items)<br>
+            <strong>Final Phase &mdash; Certification</strong> &middot; Shadowing &rarr; Reverse Shadowing &rarr; Final Sign-Off (hands-on exam)</p>
+            <p style="margin: 0;"><em>&ldquo;SinIceStir is pronounced <strong>sinister</strong>.&rdquo; Always one word, S-I-S capitalized. Curation over customization. Consistency creates quality.</em></p>
         </div>
 
         <div class="card-grid">
-            <div class="card" data-keywords="shave ice preparation flavors syrups toppings">
+            <div class="card" data-keywords="shave ice preparation third wave ice science tempering bingsu fluffy snow texture solid block glistening barskorea premium taste flavors syrups toppings">
                 <div class="card-icon bg-cyan">&#127847;</div>
                 <h3>Shave Ice Preparation</h3>
-                <p>How to prepare our signature shave ice - from shaving technique to flavor layering, portion sizes, and topping placement.</p>
+                <p>Master the SinIceStir shave ice from block to bowl. Our entire product depends on a fine, fluffy, snow-like texture that melts instantly on the tongue.</p>
+                <details class="card-detail">
+                    <summary>Open training notes</summary>
+                    <h4>The Right Foundation</h4>
+                    <ul>
+                        <li><strong>Solid Block Ice Only</strong> &mdash; uniform blocks for consistent texture.</li>
+                        <li><strong>Fluffy "Snow" Texture</strong> &mdash; this is the authentic Hawaiian-style experience we&rsquo;re known for.</li>
+                        <li><strong>NEVER use compressed ice</strong> &mdash; compressed blocks fracture easily, dull the blade quickly, and produce an undesirable "crunchy" texture that degrades the guest experience.</li>
+                    </ul>
+                    <h4>The Art of Tempering</h4>
+                    <p>Tempering is the secret step that separates amateurs from artisans &mdash; it prepares the ice block for perfect shaving conditions.</p>
+                    <ul>
+                        <li><strong>Rest 10&ndash;30 minutes</strong> &mdash; allow blocks to sit at room temperature before shaving.</li>
+                        <li><strong>Look for "glistening"</strong> &mdash; the ice should develop a wet sheen, indicating it&rsquo;s ready.</li>
+                        <li><strong>Prevents brittleness</strong> &mdash; warming slightly prevents shattering and extends blade life.</li>
+                        <li><strong>Critical for fluffiness</strong> &mdash; tempered ice shaves into ribbons rather than chips.</li>
+                    </ul>
+                    <h4>The Third Wave Difference</h4>
+                    <p>We are not first-wave commodity (40+ artificial flavors, mass customization, generic syrups). We are not second-wave improvement (better ingredients, but no cohesive vision). We are <strong>Third Wave: Premium Taste</strong> &mdash; obsessed with flavor done right, crafting house-made syrups from the best ingredients to redefine what shave ice can be.</p>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="ice cream machine soft serve frozen yogurt maintenance cleaning">
+            <div class="card" data-keywords="ice cream machine soft serve bingsu barskorea suf-400nw-mk 350kg air-cooled nsf ul ce compressor blade alignment hopper sanitizer disassemble weekly daily maintenance startup shutdown">
                 <div class="card-icon bg-pink">&#127846;</div>
                 <h3>Ice Cream Machine Operation</h3>
-                <p>Complete guide to operating, cleaning, and troubleshooting the soft-serve ice cream machine. Includes daily startup and shutdown procedures.</p>
+                <p>Operate the <strong>BarsKorea SUF-400NW-MK</strong> Commercial Snow Ice Machine (the heart of our operation) and the Soft Serve unit safely and to spec.</p>
+                <details class="card-detail">
+                    <summary>Open training notes</summary>
+                    <h4>BarsKorea SUF-400NW-MK</h4>
+                    <ul>
+                        <li><strong>Capacity:</strong> 350 kg / day.</li>
+                        <li><strong>Cooling type:</strong> Air-cooled system.</li>
+                        <li><strong>Safety certifications:</strong> NSF, UL, CE certified.</li>
+                        <li><strong>Strict Startup &amp; Shutdown</strong> &mdash; follow SOPs precisely to protect the compressor and blade alignment.</li>
+                        <li><strong>Daily Blade Maintenance</strong> &mdash; adjustments and blade care will be taught during hands-on shadowing.</li>
+                    </ul>
+                    <h4>Soft Serve</h4>
+                    <ul>
+                        <li><strong>Power ON SECOND</strong> during opening (after the Bingsu machine).</li>
+                        <li><strong>Do NOT add sanitizer to the hopper</strong> at opening startup.</li>
+                        <li><strong>Daily clean cycle</strong> required.</li>
+                        <li>At closing: power down both Bingsu &amp; Soft Serve, disassemble soft-serve parts, add sanitizer to hopper, run cycle, drain.</li>
+                    </ul>
+                    <h4>Equipment Deep Cleaning</h4>
+                    <ul>
+                        <li><strong>Weekly:</strong> disassemble &amp; soak for the Ice Shaver.</li>
+                        <li><strong>Daily:</strong> clean cycle for Soft Serve.</li>
+                    </ul>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="pos point of sale register cash card payment orders transactions">
+            <div class="card" data-keywords="pos toast point of sale clock in out card only no cash 7shifts tiphaus proservice hawaii onboarding systems setup">
                 <div class="card-icon bg-green">&#128179;</div>
-                <h3>POS System How-To</h3>
-                <p>Learn to process orders, handle payments (cash, card, mobile), apply discounts, process refunds, and close out the register.</p>
+                <h3>POS System &amp; Onboarding Systems</h3>
+                <p>Our central operations hub is <strong>Toast POS</strong>. Use it strictly to clock in/out &mdash; SinIceStir is a <strong>card-only operation with no cash handling</strong>.</p>
+                <details class="card-detail">
+                    <summary>Open training notes</summary>
+                    <h4>Toast POS</h4>
+                    <ul>
+                        <li>Clock in via Toast POS <strong>immediately on arrival</strong> to start your shift flow.</li>
+                        <li><strong>Card-only.</strong> No cash drawer checks. No cash handling duties.</li>
+                        <li><strong>Systems Check at open:</strong> POS tablets, internet, card readers.</li>
+                        <li>At close: close POS (card-only, no cash handling), then power down music &amp; lights.</li>
+                    </ul>
+                    <h4>Onboarding &amp; Systems Setup</h4>
+                    <p>Complete all administrative onboarding promptly upon receiving your invitations &mdash; this is the first critical step.</p>
+                    <ul>
+                        <li><strong>ProService Hawaii</strong> &mdash; complete all hiring documents online. <strong>ID verification must be done in person or via photo</strong> to complete the process. Deadline: 1&ndash;2 days (avoid $25/day fee).</li>
+                        <li><strong>7Shifts app</strong> &mdash; download to manage your schedule. Your first orientation shift details will be posted here. Enable notifications.</li>
+                        <li><strong>TipHaus</strong> &mdash; register at <code>my.tiphaus.com</code> or download the app to ensure you receive your daily tip distribution. Required for payouts.</li>
+                        <li><strong>Toast POS</strong> &mdash; central ops hub. Clock in/out only.</li>
+                    </ul>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="food safety handling temperature ServSafe allergens cross contamination">
+            <div class="card" data-keywords="food safety handling hygiene sanitation quat sanitizer wash rinse sanitize handwashing personal hygiene uniform allergens cross contamination">
                 <div class="card-icon bg-yellow">&#128737;</div>
                 <h3>Food Safety &amp; Handling</h3>
-                <p>Proper food handling, temperature control, allergen awareness, cross-contamination prevention, and handwashing protocols.</p>
+                <p>Strict adherence to hygiene and food-safety standards is <strong>non-negotiable</strong> for food safety and professionalism. Safety first &mdash; no shortcuts.</p>
+                <details class="card-detail">
+                    <summary>Open training notes</summary>
+                    <h4>Personal Hygiene Standards</h4>
+                    <ul>
+                        <li>Clean uniform every shift.</li>
+                        <li>Hair restrained.</li>
+                        <li>Daily bathing.</li>
+                        <li><strong>Wash hands after every task change.</strong></li>
+                    </ul>
+                    <h4>Sanitation Protocols</h4>
+                    <ul>
+                        <li>Use <strong>Quat sanitizer</strong> on all surfaces.</li>
+                        <li>Follow <strong>Wash &rarr; Rinse &rarr; Sanitize</strong> for all utensils.</li>
+                    </ul>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="customer service guest experience complaints">
+            <div class="card" data-keywords="customer service guest experience brand duality day night persona curation complaint resolution core expectations show up on time respect everyone follow recipes keep it clean ask questions premium taste sinister pronunciation">
                 <div class="card-icon bg-purple">&#128578;</div>
                 <h3>Customer Service Excellence</h3>
-                <p>Best practices for greeting guests, taking orders, handling complaints, upselling, and creating a great customer experience.</p>
+                <p>We operate a premium, high-volume concept in Waikīkī. Curation over customization. Every interaction must reflect Premium Taste.</p>
+                <details class="card-detail">
+                    <summary>Open training notes</summary>
+                    <h4>Brand Pronunciation</h4>
+                    <p><em>"SinIceStir is pronounced <strong>sinister</strong>."</em> Always one word, S-I-S capitalized. Say it confidently.</p>
+                    <h4>Brand Duality &mdash; Day vs. Night</h4>
+                    <p><strong>Day Persona &mdash; Playful &amp; Approachable.</strong> Palette: bright (blue, pink, orange, yellow). Voice: playful and approachable. Focus: craft-focused excellence. Standard: intentional and precise.</p>
+                    <p><strong>Night Persona &mdash; Darker &amp; Sharper.</strong> Palette: dark (red, deep red, black). Voice: darker, sharper, and provocative. Focus: provocative and bold. Standard: <em>"The Safe Kind of Bad."</em></p>
+                    <h4>Curation Principles</h4>
+                    <p>We do <strong>not</strong> offer a menu of 40+ flavors to mix and match. Instead we present a focused menu of 8&ndash;10 perfected signature combinations. This:</p>
+                    <ul>
+                        <li>Eliminates "choice paralysis," making decisions easier for the guest.</li>
+                        <li>Significantly speeds up service for high volume.</li>
+                        <li>Positions you, the SIA (Shave Ice Artist), as the expert guide.</li>
+                    </ul>
+                    <h4>Complaint Resolution</h4>
+                    <p>Guest satisfaction is a top priority. If a guest is ever unsatisfied with their food or service, follow these steps immediately:</p>
+                    <ol>
+                        <li>Give undivided attention &amp; listen with empathy.</li>
+                        <li>Remain calm, apologize, and take ownership.</li>
+                        <li>Partner with a manager to resolve the issue.</li>
+                    </ol>
+                    <p><strong>You are empowered to replace any unsatisfactory product without hesitation.</strong></p>
+                    <h4>Core Expectations</h4>
+                    <ul>
+                        <li><strong>Show Up On Time</strong> &mdash; arrive ready to work at your scheduled start time. Being punctual respects everyone&rsquo;s time.</li>
+                        <li><strong>Respect Everyone</strong> &mdash; treat every guest and every teammate with dignity and respect. No exceptions.</li>
+                        <li><strong>Follow Recipes Exactly</strong> &mdash; consistency is our brand. Never guess or approximate. Follow the standard every time.</li>
+                        <li><strong>Keep It Clean</strong> &mdash; maintain a pristine workspace. Clean as you go to ensure efficiency and safety.</li>
+                        <li><strong>Ask Questions</strong> &mdash; if you aren&rsquo;t sure, ask. It is always better to ask for clarification than to guess.</li>
+                    </ul>
+                </details>
                 <span class="tag tag-new">New</span>
             </div>
 
-            <div class="card" data-keywords="opening procedures startup prep station checklist morning">
+            <div class="card" data-keywords="opening procedures v3 flow startup prep station checklist morning bingsu soft serve sanitizer syrup station ice block tempering exterior brand readiness">
                 <div class="card-icon bg-blue">&#127749;</div>
-                <h3>Opening Procedures</h3>
-                <p>Step-by-step opening checklist including station prep, inventory check, equipment startup, and store readiness.</p>
+                <h3>Opening Procedures &mdash; V3 Flow</h3>
+                <p>Complete the V3 Opening Flow <strong>in sequence</strong>. Prioritize equipment startup and ice prep to ensure rush-readiness.</p>
+                <details class="card-detail">
+                    <summary>Open the 9-step opening flow</summary>
+                    <ol>
+                        <li><strong>Arrive &amp; Clock In</strong> &mdash; arrive on time. Clock in via Toast POS immediately to start flow.</li>
+                        <li><strong>Systems Check</strong> &mdash; check POS tablets, internet, card readers. NO cash drawer checks.</li>
+                        <li><strong>Bingsu Machine (1st)</strong> &mdash; Power ON <strong>FIRST</strong>. Start ice production early for syrup station prep.</li>
+                        <li><strong>Soft Serve (2nd)</strong> &mdash; Power ON <strong>SECOND</strong>. Do NOT add sanitizer to hopper.</li>
+                        <li><strong>Sanitizer Prep</strong> &mdash; prep fresh buckets &amp; spray bottles. Verify concentration.</li>
+                        <li><strong>Syrup Station Setup</strong> &mdash; pack bottles with fresh Bing juice. Check pumps &amp; seating.</li>
+                        <li><strong>Ice Block Tempering</strong> &mdash; move blocks to fridge at <strong>9:30&ndash;9:45 AM</strong>. NO room-temp tempering.</li>
+                        <li><strong>Exterior &amp; Trash</strong> &mdash; set up tables/chairs. Check trash. Sweep exterior &amp; entry.</li>
+                        <li><strong>Brand Readiness</strong> &mdash; music &amp; lights on. Signage out. Team rush-ready &amp; doors unlock.</li>
+                    </ol>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="closing procedures shutdown cleaning end of day night">
+            <div class="card" data-keywords="closing procedures shutdown cleaning end of day night phase 1 phase 2 guests exterior systems product sanitation lockup">
                 <div class="card-icon bg-orange">&#127751;</div>
                 <h3>Closing Procedures</h3>
-                <p>End-of-day shutdown: cleaning stations, shutting down equipment, securing the store, and completing closing reports.</p>
+                <p>Closing runs in two phases &mdash; secure front-of-house first, then preserve product and sanitize equipment. Leave the shop pristine.</p>
+                <details class="card-detail">
+                    <summary>Open closing flow (both phases)</summary>
+                    <h4>Phase 1 &mdash; Guests, Exterior &amp; Systems</h4>
+                    <p>Secure the perimeter, clear all trash, and close out systems.</p>
+                    <ul>
+                        <li><strong>Final Guests &amp; Lock-In</strong> &mdash; serve last guest, close doors at scheduled time, and lock immediately.</li>
+                        <li><strong>Exterior Breakdown &amp; Trash</strong> &mdash; bring in tables/chairs, sweep exterior, replace bin liners.</li>
+                        <li><strong>Interior Trash Removal</strong> &mdash; empty all interior bins, replace liners, take trash to disposal area.</li>
+                        <li><strong>POS &amp; Brand Power-Down</strong> &mdash; close POS (card-only, no cash handling). Turn off music &amp; lights.</li>
+                    </ul>
+                    <h4>Phase 2 &mdash; Product &amp; Sanitation</h4>
+                    <p>Preserve inventory, sanitize machines, and leave the shop pristine.</p>
+                    <ul>
+                        <li><strong>Syrup &amp; Ice Breakdown</strong> &mdash; syrups to fridge. Ice blocks back to freezer immediately.</li>
+                        <li><strong>Machine Shutdown</strong> &mdash; power down Bingsu &amp; Soft Serve. Disassemble soft-serve parts.</li>
+                        <li><strong>Sanitizer Procedures</strong> &mdash; add sanitizer to soft-serve hopper, run cycle, and drain.</li>
+                        <li><strong>Clean &amp; Final Walk-Through</strong> &mdash; sanitize surfaces, sweep/mop floors, verify checklist completion.</li>
+                    </ul>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
 
-            <div class="card" data-keywords="inventory stock counting ordering supplies restock">
+            <div class="card" data-keywords="inventory menu flavors signatures january 2026 rotation shark bait soft launch wanted wish you were here mood ring sharp dressed blackout adult supervision no substitutions fifo">
                 <div class="card-icon bg-green">&#128230;</div>
-                <h3>Inventory Management</h3>
-                <p>How to count stock, place orders, receive deliveries, rotate inventory (FIFO), and report shortages.</p>
+                <h3>Menu Knowledge &amp; Inventory</h3>
+                <p>Know the menu cold and rotate inventory <strong>FIFO</strong>. Our menu is curated, not customized. <em>"No substitutions &mdash; but honestly, you won&rsquo;t want any."</em></p>
+                <details class="card-detail">
+                    <summary>Open menu &amp; inventory notes</summary>
+                    <h4>Evergreen Signatures</h4>
+                    <ul>
+                        <li><strong>Shark Bait</strong> (The Classic) &mdash; Blue Vanilla, LiHing, Strawberry syrups. Toppings: mochi, condensed milk, gummi sharks.</li>
+                        <li><strong>Soft Launch</strong> &mdash; Strawberry/Strawberry/Mango. Toppings: Bing boba, condensed milk, fresh strawberries.</li>
+                        <li><strong>Wanted</strong> &mdash; Spiced/Mango/LiHing Mango. Toppings: LiHing Strong syrup, mochi.</li>
+                        <li><strong>Wish You Were Here</strong> &mdash; Pomegranate/Molasses on Co.. Pistachio syrups. Toppings: Pistachio, Edible flowers, Orange slice.</li>
+                    </ul>
+                    <h4>January 2026 Rotation</h4>
+                    <ul>
+                        <li><strong>Mood Ring</strong> &mdash; Calamansi/Butterfly Pea Tea syrups. Toppings: Mochi balls, fresh mango, popping boba.</li>
+                        <li><strong>Sharp Dressed</strong> &mdash; Pink Peppercorn/Hibiscus, Lemon Pe&euml;l syrups. Toppings: Edible flowers, condensed milk, mochi balls.</li>
+                        <li><strong>Blackout</strong> &mdash; White Chocolate/Sweetend, Black Sesame syrups. Toppings: condensed milk, kuhki, mochi balls.</li>
+                        <li><strong>Adult Supervision</strong> &mdash; Fruit Loop/Lavender/Honey syrups. Toppings: Fruit Loops, condensed milk, mochi balls.</li>
+                    </ul>
+                    <p><strong>No substitutions philosophy:</strong> our curated menu is the product. If a guest asks for off-menu changes, redirect to the signatures.</p>
+                </details>
                 <span class="tag tag-updated">Updated</span>
             </div>
 
-            <div class="card" data-keywords="cleaning sanitizing sanitation deep clean daily weekly">
+            <div class="card" data-keywords="cleaning sanitizing sanitation deep clean daily weekly quat wash rinse sanitize hygiene workplace safety wet floor robbery comply emergency procedures">
                 <div class="card-icon bg-cyan">&#129529;</div>
-                <h3>Cleaning &amp; Sanitation</h3>
-                <p>Daily, weekly, and deep-clean procedures for all work areas, equipment, and restrooms. Includes chemical safety info.</p>
+                <h3>Cleaning, Sanitation &amp; Workplace Safety</h3>
+                <p><strong>Consistency creates quality.</strong> Clean as you go. Your safety comes first &mdash; follow all emergency protocols.</p>
+                <details class="card-detail">
+                    <summary>Open cleaning &amp; safety notes</summary>
+                    <h4>Hygiene &amp; Sanitation</h4>
+                    <ul>
+                        <li><strong>Personal Hygiene:</strong> clean uniform, restrained hair, daily bathing. Wash hands after every task change.</li>
+                        <li><strong>Sanitation Protocols:</strong> Quat sanitizer on surfaces. Wash &rarr; Rinse &rarr; Sanitize for all utensils.</li>
+                    </ul>
+                    <h4>Equipment Deep Cleaning</h4>
+                    <ul>
+                        <li><strong>Weekly:</strong> disassemble &amp; soak for the Ice Shaver.</li>
+                        <li><strong>Daily:</strong> clean cycle for Soft Serve.</li>
+                    </ul>
+                    <h4>Workplace Safety</h4>
+                    <ul>
+                        <li><strong>Report injuries immediately</strong> &mdash; no matter how minor.</li>
+                        <li><strong>Use "Wet Floor" signs</strong> after any spill or floor cleaning.</li>
+                        <li><strong>Robbery: comply, don&rsquo;t be a hero.</strong> Cash can be replaced; human life cannot. Call the police immediately after the robbery. Do not discuss details with anyone until police arrive.</li>
+                    </ul>
+                    <h4>Training Next Steps</h4>
+                    <ol>
+                        <li>Shadow a Team Lead.</li>
+                        <li>Reverse Shadow (Manager observes you).</li>
+                        <li>Annual Review.</li>
+                    </ol>
+                </details>
                 <span class="tag tag-required">Required</span>
             </div>
         </div>
