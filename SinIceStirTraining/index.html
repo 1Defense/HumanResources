@@ -331,6 +331,57 @@
         }
         .pay-period-explainer h4:first-child { margin-top: 0; }
 
+        /* ===== Suggestion form ===== */
+        .suggestion-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+            max-width: 640px;
+        }
+        .suggestion-form label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+        .suggestion-form select,
+        .suggestion-form textarea,
+        .suggestion-form input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            background: var(--bg, #fff);
+            color: inherit;
+            box-sizing: border-box;
+        }
+        .suggestion-form textarea { resize: vertical; min-height: 96px; }
+        .suggestion-form select:focus,
+        .suggestion-form textarea:focus,
+        .suggestion-form input:focus {
+            outline: 2px solid var(--primary, #2563eb);
+            outline-offset: 1px;
+            border-color: var(--primary, #2563eb);
+        }
+        .suggestion-form button {
+            padding: 10px 18px;
+            background: var(--primary, #2563eb);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+        }
+        .suggestion-form button:hover { filter: brightness(0.95); }
+        .suggestion-form button:disabled { opacity: 0.55; cursor: not-allowed; }
+        .suggestion-form .sg-success { color: var(--success, #15803d); font-weight: 600; }
+        .suggestion-form .sg-error { color: var(--danger, #b91c1c); font-weight: 500; }
+
         /* ===== Accordion ===== */
         .accordion { display: flex; flex-direction: column; gap: 8px; }
 
@@ -1761,35 +1812,111 @@
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="pos system register point of sale how to video tutorial">
+            <a href="https://support.toasttab.com/en/front-of-house-skills-101" target="_blank" rel="noopener" class="link-item" data-keywords="pos system register toast point of sale front of house skills 101 how to video tutorial">
                 <div class="link-icon bg-green">&#128179;</div>
                 <div>
-                    <h4>POS System Tutorial</h4>
-                    <p>Complete walkthrough of our point-of-sale system: orders, payments, refunds, and reports (link coming soon)</p>
+                    <h4>POS System Tutorial &mdash; Toast Front-of-House Skills 101</h4>
+                    <p>Official Toast walkthrough of point-of-sale operation: orders, payments, refunds, and reports. <em>Open this on a tablet or laptop &mdash; the videos are best watched full-screen.</em></p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="shave ice making preparation flavors how to video">
-                <div class="link-icon bg-cyan">&#127847;</div>
-                <div>
-                    <h4>Shave Ice Making - From Block to Bowl</h4>
-                    <p>Watch how to properly shave ice, layer flavors, and present the perfect shave ice (link coming soon)</p>
-                </div>
-                <span class="arrow">&#8250;</span>
-            </a>
-            <a href="#" class="link-item" data-keywords="food safety handling ServSafe training video">
+            <a href="/foodsafety" class="link-item" data-keywords="food safety essentials bonus food handler course certificate $20 reward training serv safe">
                 <div class="link-icon bg-yellow">&#128737;</div>
                 <div>
-                    <h4>Food Safety Essentials</h4>
-                    <p>Required food safety training covering temperature control, cross-contamination, and hygiene (link coming soon)</p>
+                    <h4>Food Safety Essentials &mdash; Approved Course + $20 Bonus</h4>
+                    <p>Required food-handler training. Take the approved online course, submit your certificate, and earn the <strong>$20 Food Safety Bonus</strong>. See the dedicated Food Safety page for the approved link and full instructions.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="cleaning sanitizing equipment daily routine video">
+        </div>
+
+        <h3 style="font-size: 1rem; margin: 20px 0 12px 0; color: var(--text-light);">&#128737; Food Safety &amp; Sanitation Videos</h3>
+        <div class="link-list" style="margin-bottom: 28px;">
+            <a href="https://www.nnph.org/programs-and-services/environmental-health/food-protection-services/amc/videos-english/food_contact_surfaces.php" target="_blank" rel="noopener" class="link-item" data-keywords="food contact surfaces sanitation northern nevada public health">
+                <div class="link-icon bg-yellow">&#128737;</div>
+                <div>
+                    <h4>Food Contact Surfaces &mdash; Northern Nevada Public Health</h4>
+                    <p>What counts as a food-contact surface and how to keep it safe.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=4Ykn485g-Aw" target="_blank" rel="noopener" class="link-item" data-keywords="cleaning sanitizing food contact surfaces youtube">
+                <div class="link-icon bg-cyan">&#129529;</div>
+                <div>
+                    <h4>Cleaning &amp; Sanitizing Food Contact Surfaces</h4>
+                    <p>Step-by-step demonstration of the wash &rarr; rinse &rarr; sanitize sequence on food-contact surfaces.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=r0sWf0jf6T4" target="_blank" rel="noopener" class="link-item" data-keywords="cleaning sanitizing foodservice daily routine youtube">
                 <div class="link-icon bg-blue">&#129529;</div>
                 <div>
-                    <h4>Daily Cleaning Routine</h4>
-                    <p>Watch the proper cleaning and sanitizing procedures for all equipment and work areas (link coming soon)</p>
+                    <h4>Cleaning and Sanitizing &mdash; Foodservice</h4>
+                    <p>Broader cleaning + sanitizing overview for a food-service environment.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=kPrupNZ3NM0" target="_blank" rel="noopener" class="link-item" data-keywords="quat sanitizer testing diversey 2-minute drill ep 40">
+                <div class="link-icon bg-pink">&#128300;</div>
+                <div>
+                    <h4>Quat Sanitizer Testing &mdash; Diversey 2-Minute Drill (Ep 40)</h4>
+                    <p>How to verify your Quat sanitizer is at the correct concentration.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.webstaurantstore.com/video-11172/how-to-use-sanitizer-test-strips.html" target="_blank" rel="noopener" class="link-item" data-keywords="sanitizer test strips webstaurantstore how to use">
+                <div class="link-icon bg-orange">&#128300;</div>
+                <div>
+                    <h4>How to Use Sanitizer Test Strips &mdash; WebstaurantStore</h4>
+                    <p>Quick demo of dipping, timing, and reading sanitizer test strips correctly.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=Ur1DXGGZHxY" target="_blank" rel="noopener" class="link-item" data-keywords="test sanitizer meck environmental health">
+                <div class="link-icon bg-green">&#128300;</div>
+                <div>
+                    <h4>How to Test Your Sanitizer &mdash; Meck Environmental Health</h4>
+                    <p>Another walkthrough of sanitizer-strength testing, from a county health department perspective.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+        </div>
+
+        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);">&#127864; Bar &amp; Beverage Hygiene Videos</h3>
+        <div class="link-list" style="margin-bottom: 28px;">
+            <a href="https://www.youtube.com/watch?v=NYvC5G5KF3M" target="_blank" rel="noopener" class="link-item" data-keywords="bar cleaning sanitising youtube">
+                <div class="link-icon bg-purple">&#127864;</div>
+                <div>
+                    <h4>How To Clean &amp; Sanitise In The Bar</h4>
+                    <p>Bar-area cleaning and sanitizing routine.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=iiZRSQyrQLs" target="_blank" rel="noopener" class="link-item" data-keywords="hygiene bar beverage essentials course youtube">
+                <div class="link-icon bg-purple">&#127864;</div>
+                <div>
+                    <h4>Hygiene in a Bar &mdash; Beverage Essentials Course</h4>
+                    <p>Personal and station hygiene standards in a bar environment.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+        </div>
+
+        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);">&#129482; Shave Ice &amp; Ice-Machine Maintenance Videos</h3>
+        <div class="link-list" style="margin-bottom: 28px;">
+            <a href="https://www.youtube.com/watch?v=n0Z8ktKzh5c" target="_blank" rel="noopener" class="link-item" data-keywords="swan shave ice machine si-8b maintenance tutorial youtube">
+                <div class="link-icon bg-cyan">&#127847;</div>
+                <div>
+                    <h4>Swan Shave Ice Machine SI-8B Maintenance Tutorial</h4>
+                    <p>Maintenance and blade-care walkthrough on a comparable shave ice unit. Useful even for our BarsKorea machine &mdash; the principles transfer.</p>
+                </div>
+                <span class="arrow">&#8250;</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=VNLcctr-TCg" target="_blank" rel="noopener" class="link-item" data-keywords="true clear ice machine cleaning tui-15-d youtube">
+                <div class="link-icon bg-cyan">&#129482;</div>
+                <div>
+                    <h4>True Clear Ice Machine Cleaning (TUI-15-D)</h4>
+                    <p>Cleaning procedure for a True ice machine.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
@@ -1805,47 +1932,64 @@
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="https://www.proservice.com/employee-learning-center-your-info/" target="_blank" class="link-item" data-keywords="payroll pay stub direct deposit paychecks proservice">
+            <a href="https://www.proservice.com/employee-learning-center-your-info/" target="_blank" rel="noopener" class="link-item" data-keywords="payroll pay stub direct deposit paychecks proservice benefits insurance perks discount hr">
                 <div class="link-icon bg-green">&#128176;</div>
                 <div>
-                    <h4>ProService - Payroll &amp; Pay Stubs</h4>
-                    <p>Access your pay stubs, tax documents, and direct deposit settings</p>
+                    <h4>ProService &mdash; Pay, Benefits &amp; HR</h4>
+                    <p>Pay stubs, tax documents, direct deposit, benefits enrollment, and HR resources. One stop for everything ProService administers on our behalf.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="health department food permit license inspection">
+            <a href="https://health.hawaii.gov/san/" target="_blank" rel="noopener" class="link-item" data-keywords="health department food permit license inspection hawaii doh sanitation food safety">
                 <div class="link-icon bg-red">&#127973;</div>
                 <div>
-                    <h4>Health Department Resources</h4>
-                    <p>Local health department guidelines, inspection checklists, and food handler permit info</p>
+                    <h4>Hawaii DOH &mdash; Food Safety Branch</h4>
+                    <p>State of Hawaii Department of Health Food Safety Branch. Food-handler permit info, inspection guidelines, and reporting procedures. Oahu line: <a href="tel:18085868000" onclick="event.stopPropagation();">(808) 586-8000</a>.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="benefits insurance employee perks discount">
-                <div class="link-icon bg-orange">&#127873;</div>
-                <div>
-                    <h4>Employee Benefits &amp; Perks</h4>
-                    <p>Information about your benefits, employee discounts, and company perks</p>
-                </div>
-                <span class="arrow">&#8250;</span>
-            </a>
-            <a href="https://www.dropbox.com/scl/fo/v931o87lrf8uh0s0pr2rz/AAeeuROHOphJRMdRb0NvF0A?rlkey=rrfhnyq1v5oqdypzknouk6gfu&dl=0" target="_blank" class="link-item" data-keywords="documents files dropbox training manuals forms">
+            <a href="https://www.dropbox.com/scl/fo/v931o87lrf8uh0s0pr2rz/AAeeuROHOphJRMdRb0NvF0A?rlkey=rrfhnyq1v5oqdypzknouk6gfu&dl=0" target="_blank" rel="noopener" class="link-item" data-keywords="documents files dropbox training manuals forms">
                 <div class="link-icon bg-blue">&#128193;</div>
                 <div>
                     <h4>Company Documents (Dropbox)</h4>
-                    <p>Access training documents, forms, manuals, and other company files</p>
+                    <p>Training documents, forms, manuals, and other company files.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
-            <a href="#" class="link-item" data-keywords="suggestion feedback idea improvement box">
+<a href="#suggestion-form" onclick="document.getElementById('suggestion-form').scrollIntoView({behavior:'smooth', block:'center'}); document.querySelector('#suggestion-form textarea').focus(); return false;" class="link-item" data-keywords="suggestion feedback idea improvement box anonymous form">
                 <div class="link-icon bg-cyan">&#128172;</div>
                 <div>
-                    <h4>Employee Suggestion Box</h4>
-                    <p>Share your ideas for improving operations, products, or the work environment</p>
+                    <h4>Anonymous Suggestion Box</h4>
+                    <p>Share ideas for improving operations, products, or the work environment. <strong>Fully anonymous</strong> &mdash; no email, no name, no IP captured. Scroll down to the form below or click here.</p>
                 </div>
                 <span class="arrow">&#8250;</span>
             </a>
         </div>
+
+        <h3 id="suggestion-form" style="font-size: 1rem; margin: 28px 0 8px 0; color: var(--text-light);">&#128172; Anonymous Suggestion Box</h3>
+        <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;"><strong>Fully anonymous.</strong> We do not capture your name, email, or IP address. Be specific &mdash; the more detail you give, the more useful it is.</p>
+        <form id="suggestionForm" class="suggestion-form" autocomplete="off" novalidate>
+            <label for="sgCategory">Category</label>
+            <select id="sgCategory" name="category">
+                <option value="">&mdash; Select &mdash;</option>
+                <option value="operations">Operations / Workflow</option>
+                <option value="product">Product / Menu</option>
+                <option value="service">Customer Service</option>
+                <option value="safety">Safety / Sanitation</option>
+                <option value="culture">Team / Culture</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="sgMessage">Your suggestion <span style="color: var(--danger);">*</span></label>
+            <textarea id="sgMessage" name="message" rows="6" required maxlength="5000" placeholder="What would you change, add, or fix? Be specific."></textarea>
+            <div style="font-size: 0.75rem; color: var(--text-light); margin-top: -6px;"><span id="sgCount">0</span> / 5000 characters</div>
+
+            <label for="sgName" style="margin-top: 12px;">Your name <span style="font-weight: 400; color: var(--text-light);">(optional &mdash; leave blank to stay fully anonymous)</span></label>
+            <input id="sgName" name="name" type="text" maxlength="100" placeholder="Leave blank for anonymous" autocomplete="off">
+
+            <button type="submit" id="sgSubmit" style="margin-top: 14px;">Submit Suggestion</button>
+            <div id="sgStatus" style="margin-top: 10px; font-size: 0.88rem;" role="status" aria-live="polite"></div>
+        </form>
     </div>
 
     <!-- ===== SOPs ===== -->
@@ -2148,57 +2292,64 @@
             <div class="contact-card">
                 <div class="contact-type text-red">&#128680; Emergency Services</div>
                 <h4>Police / Fire / Ambulance</h4>
-                <div class="phone">&#128222; 911</div>
+                <div class="phone"><a href="tel:911">&#128222; 911</a></div>
                 <div class="note">For all life-threatening emergencies</div>
             </div>
 
             <div class="contact-card">
                 <div class="contact-type text-red">&#128680; Poison Control</div>
                 <h4>National Poison Control Center</h4>
-                <div class="phone">&#128222; 1-800-222-1222</div>
+                <div class="phone"><a href="tel:18002221222">&#128222; 1-800-222-1222</a></div>
                 <div class="note">For chemical exposure or ingestion emergencies</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-purple">&#128100; Store Owner</div>
-                <h4>Store Owner / Operator</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">Primary contact for business decisions and emergencies</div>
+                <div class="contact-type text-blue">&#128100; Honolulu Police (Non-Emergency)</div>
+                <h4>HPD Non-Emergency Line</h4>
+                <div class="phone"><a href="tel:18085293111">&#128222; (808) 529-3111</a></div>
+                <div class="note">For incidents that aren&rsquo;t life-threatening &mdash; suspicious activity, after-the-fact theft, noise complaints. Call 911 instead for anything in progress.</div>
             </div>
 
             <div class="contact-card">
                 <div class="contact-type text-blue">&#128188; General Manager</div>
                 <h4>General Manager</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">Day-to-day operations and staff issues</div>
+                <div class="phone" style="opacity: 0.6;">&#128222; Posted by the staff board</div>
+                <div class="note">Day-to-day operations, staff issues, and the first call for anything that isn&rsquo;t a 911 emergency. <strong>The current GM&rsquo;s direct phone and email are posted by the POS / staff board at the store</strong> &mdash; ask any on-duty manager if you don&rsquo;t see them.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-blue">&#128188; Shift Lead</div>
-                <h4>On-Duty Shift Lead</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">First point of contact during your shift</div>
+                <div class="contact-type text-green">&#127973; Hawaii Food Safety Branch</div>
+                <h4>HI DOH Food Safety &mdash; Oahu</h4>
+                <div class="phone"><a href="tel:18085868000">&#128222; (808) 586-8000</a></div>
+                <div class="note">Food-safety concerns, restaurant inspection follow-ups, and food-handler permit info. For all-island info, the DOH general line is (808) 586-4400.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-green">&#127973; Health Department</div>
-                <h4>Local Health Department</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">Food safety concerns and health inspections</div>
+                <div class="contact-type text-yellow">&#128295; Equipment Service</div>
+                <h4>BarsKorea (Max Kong / 공민식) &mdash; Bingsu / Soft-Serve Service</h4>
+                <div class="phone"><a href="tel:+821062753757">&#128222; +82 10-6275-3757</a> &middot; office <a href="tel:+82325813466">+82 32-581-3466</a></div>
+                <div class="note">BarsKorea SUF-400NW-MK manufacturer (Incheon, South Korea). Email <a href="mailto:info@barskorea.com">info@barskorea.com</a>. <strong>Notify the General Manager first</strong> for any equipment breakdown &mdash; do not attempt internal repairs. <a href="https://www.bkkoreafnb.com" target="_blank" rel="noopener">bkkoreafnb.com</a></div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-yellow">&#128295; Equipment Repair</div>
-                <h4>Equipment Service Company</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">Ice cream machine, shave ice machine, or other equipment breakdowns</div>
+                <div class="contact-type text-yellow">&#9889; Hawaiian Electric (HECO)</div>
+                <h4>Power Outage / Downed Line</h4>
+                <div class="phone"><a href="tel:18553041212">&#128222; 1-855-304-1212</a></div>
+                <div class="note">24-hour outage reporting. For a downed line: stay back, keep customers back, and call 911 first.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-yellow">&#9889; Utilities</div>
-                <h4>Power / Water / Gas</h4>
-                <div class="phone">&#128222; (___) ___-____</div>
-                <div class="note">For utility outages or gas leak emergencies (evacuate first if gas leak)</div>
+                <div class="contact-type text-blue">&#128167; Board of Water Supply</div>
+                <h4>Honolulu BWS 24-hour</h4>
+                <div class="phone"><a href="tel:18087485000">&#128222; (808) 748-5000</a></div>
+                <div class="note">Water-main breaks, no water, low pressure, or quality concerns. Press <strong>1</strong> at the prompt.</div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-type text-red">&#128293; Hawaii Gas</div>
+                <h4>Gas Leak / Emergency &mdash; Oahu</h4>
+                <div class="phone"><a href="tel:18085260066">&#128222; (808) 526-0066</a></div>
+                <div class="note"><strong>Evacuate first.</strong> If you smell gas: get everyone out, leave doors open, do not use phones or switches inside, then call from outside.</div>
             </div>
         </div>
 
@@ -2385,6 +2536,60 @@
     }
 
     loadChecklist();
+
+    // ===== Suggestion form =====
+    (function() {
+        const form = document.getElementById('suggestionForm');
+        if (!form) return;
+        const msg = document.getElementById('sgMessage');
+        const count = document.getElementById('sgCount');
+        const btn = document.getElementById('sgSubmit');
+        const status = document.getElementById('sgStatus');
+
+        msg.addEventListener('input', () => { count.textContent = msg.value.length; });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = '';
+            status.className = '';
+            const text = msg.value.trim();
+            if (!text) {
+                status.textContent = 'Please enter a suggestion before submitting.';
+                status.className = 'sg-error';
+                msg.focus();
+                return;
+            }
+            btn.disabled = true;
+            const originalLabel = btn.textContent;
+            btn.textContent = 'Submitting…';
+            const payload = {
+                category: form.elements.category.value || '',
+                message: text,
+                name: (form.elements.name.value || '').trim()
+            };
+            try {
+                const res = await fetch('/api/suggestion', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) {
+                    const err = await res.text().catch(() => '');
+                    throw new Error(err || ('HTTP ' + res.status));
+                }
+                form.reset();
+                count.textContent = '0';
+                status.textContent = 'Thanks — your suggestion was submitted anonymously.';
+                status.className = 'sg-success';
+            } catch (err) {
+                status.textContent = 'Submission failed. Please try again, or hand a note to a manager directly.';
+                status.className = 'sg-error';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = originalLabel;
+            }
+        });
+    })();
 
     // ===== Global Search =====
     const searchInput = document.getElementById('globalSearch');

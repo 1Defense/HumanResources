@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SinIceStir &mdash; Food Safety Certificate Bonus</title>
+<meta name="description" content="Every SinIceStir team member must complete a short online Food Handler course. Pass the course, submit your certificate, and earn a $20 Food Safety Bonus.">
+<link rel="icon" href="data:,">
+<style>
+:root {
+  --bg: #faf9f7;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --text-light: #5b6470;
+  --primary: #0ea5e9;
+  --primary-dark: #0284c7;
+  --accent: #ec4899;
+  --success: #15803d;
+  --warning: #b45309;
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; line-height: 1.55; }
+@font-face {
+  font-family: 'Sheepman';
+  src: url('SheepmanBold-font.woff2') format('woff2'),
+       url('SheepmanBold-font.woff') format('woff');
+  font-weight: bold;
+  font-display: swap;
+}
+header.hero {
+  background: linear-gradient(135deg, #0ea5e9 0%, #ec4899 100%);
+  color: #fff;
+  padding: 36px 20px 28px;
+  text-align: center;
+}
+header.hero h1 {
+  margin: 0;
+  font-family: 'Sheepman', system-ui, sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+header.hero .sub {
+  margin-top: 8px;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+header.hero .back {
+  display: inline-block;
+  margin-top: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 999px;
+}
+header.hero .back:hover { background: rgba(255,255,255,0.12); }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+.bonus-banner {
+  background: #fef9c3;
+  border-left: 6px solid #ca8a04;
+  padding: 16px 18px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.bonus-banner .icon { font-size: 2rem; }
+.bonus-banner h2 { margin: 0 0 4px 0; font-size: 1.1rem; }
+.bonus-banner p { margin: 0; font-size: 0.92rem; color: #5b4708; }
+.cta {
+  background: var(--card-bg);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+}
+.cta h2 { margin: 0 0 6px 0; font-size: 1.1rem; }
+.cta .url {
+  display: inline-block;
+  margin: 10px 0 14px 0;
+  padding: 10px 18px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.cta .url:hover { background: var(--primary-dark); }
+.cta .note { font-size: 0.85rem; color: var(--text-light); margin: 0; }
+h2 { font-size: 1.25rem; margin: 26px 0 10px 0; }
+h2 .ix {
+  display: inline-block;
+  width: 28px; height: 28px;
+  background: var(--primary); color: #fff;
+  border-radius: 999px;
+  font-size: 0.85rem; line-height: 28px;
+  text-align: center; margin-right: 8px;
+  vertical-align: middle;
+}
+ol, ul { padding-left: 26px; }
+ol li, ul li { margin: 6px 0; }
+.step-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 8px 0;
+}
+.step-card strong { color: var(--primary-dark); }
+.email-callout {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+.email-callout code {
+  font-size: 0.95rem;
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #bae6fd;
+}
+.requirements {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 14px 0;
+}
+.requirements ul { margin: 6px 0; }
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.82rem;
+  border-top: 1px solid var(--border);
+  padding: 24px 20px;
+}
+footer a { color: var(--primary-dark); }
+.flyer {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 22px;
+  margin: 28px 0 8px 0;
+}
+.flyer h2 {
+  font-family: 'Sheepman', system-ui, sans-serif;
+  font-size: 1.4rem;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.flyer ol { padding-left: 24px; }
+.flyer ol li { margin: 6px 0; }
+.flyer strong { color: #fde047; }
+@media (max-width: 600px) {
+  header.hero h1 { font-size: 1.6rem; }
+  main { padding: 20px 16px 40px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Food Safety Certificate Bonus</h1>
+  <div class="sub">Pass the approved online Food Handler course &mdash; earn $20.</div>
+  <a class="back" href="/">&larr; Back to the Training Hub</a>
+</header>
+
+<main>
+
+  <div class="bonus-banner">
+    <div class="icon">&#127942;</div>
+    <div>
+      <h2>$20 Bonus After Approval</h2>
+      <p>Every SinIceStir team member must complete a short online Food Handler course. After you pass and submit your certificate, SinIceStir issues a <strong>$20 Food Safety Bonus</strong>.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h2>Use this page only</h2>
+    <p class="note">So every employee uses the same approved course:</p>
+    <a class="url" href="/foodsafety">sin-ice-stir.club/foodsafety</a>
+    <p class="note">Bookmark this page on your phone. It links to the approved Food Handler course.</p>
+  </div>
+
+  <h2><span class="ix">1</span>Step-by-step instructions</h2>
+
+  <div class="step-card"><strong>1.</strong> Open <a href="/foodsafety">sin-ice-stir.club/foodsafety</a> on your phone or computer.</div>
+  <div class="step-card"><strong>2.</strong> Tap the button for the approved <strong>Food Handler</strong> course in English.</div>
+  <div class="step-card"><strong>3.</strong> Create an account using your <strong>real full name</strong>, a working email address, and a password you will remember.</div>
+  <div class="step-card"><strong>4.</strong> Pay the course fee directly on the website. <em>You pay for the course yourself</em> &mdash; SinIceStir does not pre-purchase seats, books, or manuals.</div>
+  <div class="step-card"><strong>5.</strong> Complete the course on the same device.</div>
+  <div class="step-card"><strong>6.</strong> Pass the final quiz and open your certificate or food handler card.</div>
+  <div class="step-card"><strong>7.</strong> Download the certificate PDF or take a screenshot that clearly shows your <strong>name, course name, and completion date</strong>.</div>
+  <div class="step-card"><strong>8.</strong> Email your certificate or screenshot to the address below.</div>
+
+  <div class="email-callout">
+    <strong>Send proof of completion to:</strong><br>
+    <a href="mailto:AlbertA@tikisgrill.com?subject=FOOD%20SAFETY%20CERT%20COMPLETE"><code>AlbertA@tikisgrill.com</code></a><br>
+    Subject line: <code>FOOD SAFETY CERT COMPLETE</code>
+  </div>
+
+  <h2><span class="ix">2</span>What your proof must show</h2>
+
+  <div class="requirements">
+    <ul>
+      <li>Your <strong>full legal name</strong></li>
+      <li>The <strong>Food Handler</strong> course name</li>
+      <li>Completion date</li>
+      <li>Certificate or card image / PDF</li>
+    </ul>
+    <p style="font-size: 0.88rem; color: var(--text-light); margin: 0;">If any of those items are missing, your bonus may be delayed until correct proof is submitted.</p>
+  </div>
+
+  <h2><span class="ix">3</span>Bonus policy</h2>
+
+  <ul>
+    <li>You pay for the course yourself.</li>
+    <li>SinIceStir does not pre-purchase seats, books, or manuals.</li>
+    <li>After management verifies your certificate, you will receive a <strong>$20 Food Safety Bonus</strong>.</li>
+    <li>Only the approved course linked from <a href="/foodsafety">sin-ice-stir.club/foodsafety</a> will be accepted for this bonus program.</li>
+  </ul>
+
+  <div class="flyer">
+    <h2>SinIceStir Food Safety Bonus</h2>
+    <p style="margin-top:0;">Complete the approved online Food Handler course.</p>
+    <ol>
+      <li>Go to <strong>sin-ice-stir.club/foodsafety</strong></li>
+      <li>Take the approved course in English</li>
+      <li>Pay for the course yourself</li>
+      <li>Pass the quiz</li>
+      <li>Email your certificate to <strong>AlbertA@tikisgrill.com</strong></li>
+      <li>Receive your <strong>$20 bonus</strong> after approval</li>
+    </ol>
+  </div>
+
+  <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 24px;"><em>Note: The button linking to the approved Food Handler course will be added here as soon as the course provider is finalized. Until then, ask your manager for the current approved course URL.</em></p>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 SinIceStir Shave Ice &mdash; Employee Training Hub</p>
+  <p><a href="/">Return to the main training hub</a></p>
+</footer>
+
+</body>
+</html>

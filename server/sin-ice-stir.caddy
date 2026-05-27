@@ -1,0 +1,19 @@
+sin-ice-stir.club {
+    root * /var/www/sin-employee-training
+    encode zstd gzip
+
+    # Anonymous suggestion-box API (handled by sin-suggestion-box.service on :8090)
+    handle /api/suggestion* {
+        reverse_proxy 127.0.0.1:8090
+    }
+
+    # Static site with clean URLs (so /foodsafety -> foodsafety.html)
+    handle {
+        try_files {path} {path}.html {path}/
+        file_server
+    }
+}
+
+www.sin-ice-stir.club {
+    redir https://sin-ice-stir.club{uri} permanent
+}
