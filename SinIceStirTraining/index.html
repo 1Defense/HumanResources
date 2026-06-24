@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SinIceStir Shave Ice - Employee Training Hub</title>
+    <link rel="icon" href="sinicestir-red-reversal-logo.svg" type="image/svg+xml">
     <style>
         @font-face {
             font-family: 'SheepmanRegular';
@@ -97,15 +98,23 @@
         }
 
         .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--ice-blue), var(--ice-purple), var(--ice-pink));
-            border-radius: 12px;
+            width: 64px;
+            height: 52px;
+            background: rgba(0,0,0,0.28);
+            border: 1px solid rgba(250,10,10,0.45);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 4px;
         }
 
         .logo-text h1 {
@@ -183,7 +192,63 @@
             border-bottom-color: var(--ice-blue);
         }
 
-        .nav-icon { font-size: 1.1rem; }
+        .si-icon {
+            width: 1.15em;
+            height: 1.15em;
+            display: inline-block;
+            flex-shrink: 0;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: -0.16em;
+        }
+
+        .nav-icon,
+        .qa-icon,
+        .card-icon,
+        .link-icon,
+        .accordion-header .icon,
+        .contact-type,
+        .phone,
+        .em-icon,
+        .nr-icon {
+            color: inherit;
+        }
+
+        .nav-icon .si-icon,
+        .accordion-header .icon .si-icon,
+        .contact-type .si-icon,
+        .phone .si-icon {
+            width: 1.15rem;
+            height: 1.15rem;
+        }
+
+        .qa-icon .si-icon {
+            width: 1.9rem;
+            height: 1.9rem;
+        }
+
+        .card-icon .si-icon,
+        .link-icon .si-icon {
+            width: 1.45rem;
+            height: 1.45rem;
+        }
+
+        .em-icon .si-icon {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        .heading-icon {
+            display: inline-flex;
+            width: 1.15rem;
+            height: 1.15rem;
+            margin-right: 6px;
+            vertical-align: -0.16em;
+            color: var(--primary);
+        }
 
         /* ===== Main Content ===== */
         .main { max-width: 1200px; margin: 0 auto; padding: 24px; }
@@ -426,7 +491,7 @@
             transition: max-height 0.3s ease;
         }
 
-        .accordion-item.open .accordion-content { max-height: 2000px; }
+        .accordion-item.open .accordion-content { max-height: 7000px; }
 
         .accordion-body {
             padding: 0 20px 16px 20px;
@@ -779,45 +844,87 @@
     </style>
 </head>
 <body>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9v5"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-bandage" viewBox="0 0 24 24"><path d="m10 21 11-11a4 4 0 0 0-6-6L4 15a4 4 0 0 0 6 6Z"/><path d="m8 14 2 2"/><path d="m14 8 2 2"/><path d="m9.5 17.5 8-8"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9Z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-14h-7l1-6Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H21v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H21"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 12h18"/><path d="M9 12v2h6v-2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4a3 3 0 0 1 6 0"/><path d="m9 13 2 2 4-4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2.5S5 10 5 15a7 7 0 0 0 14 0c0-5-7-12.5-7-12.5Z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6-5-9 0 3-2 4-4 6-1.5 1.5-3 3-3 5a5 5 0 0 0 5 5Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M12 14l4-4"/><path d="M6 18h12"/></symbol>
+    <symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M20.5 8.5c0 5-8.5 11-8.5 11s-8.5-6-8.5-11A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8.5 2.5Z"/><path d="M4 13h4l1.5-3 3 6 1.5-3h6"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></symbol>
+    <symbol id="i-ice-cream" viewBox="0 0 24 24"><path d="M8 11a4 4 0 1 1 8 0"/><path d="M6 11h12l-6 11-6-11Z"/><path d="M10 15h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M12 22s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="m12 2 8 4v12l-8 4-8-4V6l8-4Z"/><path d="m4 6 8 4 8-4"/><path d="M12 10v12"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.5v3a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 19 19 0 0 1-6-6 19 19 0 0 1-3-8.3A2 2 0 0 1 4.5 2h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8L8 9.4a16 16 0 0 0 6.6 6.6l1.3-1.3a2 2 0 0 1 1.8-.6l2.6.4a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="i-shirt" viewBox="0 0 24 24"><path d="M8 4 5 6l-3 5 4 2 2-3v10h8V10l2 3 4-2-3-5-3-2a5 5 0 0 1-8 0Z"/></symbol>
+    <symbol id="i-snowflake" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="m4.9 4.9 14.2 14.2"/><path d="M2 12h20"/><path d="m4.9 19.1 14.2-14.2"/><path d="m8 4 4 4 4-4"/><path d="m8 20 4-4 4 4"/></symbol>
+    <symbol id="i-spray" viewBox="0 0 24 24"><path d="M9 3h6v4H9Z"/><path d="M11 7h2v4H9a4 4 0 0 0-4 4v6h12v-6a4 4 0 0 0-4-4"/><path d="M18 5h3"/><path d="M19 9l2 1"/><path d="M19 1l2-1"/></symbol>
+    <symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M3 18h18"/><path d="M5 14a7 7 0 0 1 14 0"/><path d="M12 3v4"/><path d="m4 8 2 2"/><path d="m20 8-2 2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-test-tube" viewBox="0 0 24 24"><path d="M10 2h8"/><path d="M14 2v6L6 19a3 3 0 0 0 5 3l7-11V2"/><path d="M8.5 16h5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.8"/><path d="M16 3.2a4 4 0 0 1 0 7.6"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M4 2v8"/><path d="M8 2v8"/><path d="M6 2v20"/><path d="M14 2v20"/><path d="M14 2c4 2 5 6 2 9h-2"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 9 4-2v10l-4-2"/></symbol>
+    <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 8c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 14c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 20c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 14h15a3 3 0 1 1-3 3"/><path d="M3 20h7"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L10 21l-5-5 9.7-9.7Z"/></symbol>
+</svg>
 
 <!-- ===== HEADER ===== -->
 <header class="header">
     <div class="header-top">
         <div class="logo-area">
-            <div class="logo-icon">&#127847;</div>
+            <div class="logo-icon"><img src="sinicestir-red-reversal-logo.svg" alt="SinIceStir"></div>
             <div class="logo-text">
                 <h1>SinIceStir Shave Ice</h1>
                 <p>Employee Training Hub</p>
             </div>
         </div>
         <div class="search-box">
-            <span class="search-icon">&#128269;</span>
+            <span class="search-icon"><svg class="si-icon"><use href="#i-search"></use></svg></span>
             <input type="text" id="globalSearch" placeholder="Search guides, policies, links..." autocomplete="off">
         </div>
     </div>
     <nav class="nav" id="mainNav">
         <button class="nav-btn active" data-section="dashboard">
-            <span class="nav-icon">&#127968;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-home"></use></svg></span>
             <span class="nav-label">Dashboard</span>
         </button>
         <button class="nav-btn" data-section="training">
-            <span class="nav-icon">&#128218;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-book"></use></svg></span>
             <span class="nav-label">Training Guides</span>
         </button>
         <button class="nav-btn" data-section="policies">
-            <span class="nav-icon">&#128220;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-file"></use></svg></span>
             <span class="nav-label">Policy Manual</span>
         </button>
         <button class="nav-btn" data-section="resources">
-            <span class="nav-icon">&#128279;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-link"></use></svg></span>
             <span class="nav-label">Resources &amp; Videos</span>
         </button>
         <button class="nav-btn" data-section="sops">
-            <span class="nav-icon">&#9989;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-clipboard"></use></svg></span>
             <span class="nav-label">SOPs</span>
         </button>
         <button class="nav-btn" data-section="emergency">
-            <span class="nav-icon">&#128680;</span>
+            <span class="nav-icon"><svg class="si-icon"><use href="#i-alert"></use></svg></span>
             <span class="nav-label">Emergency</span>
         </button>
     </nav>
@@ -848,27 +955,27 @@
 
         <div class="quick-actions">
             <div class="quick-action" onclick="navigateTo('training')">
-                <div class="qa-icon">&#128218;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-book"></use></svg></div>
                 <h4>Training Guides</h4>
             </div>
             <div class="quick-action" onclick="navigateTo('policies')">
-                <div class="qa-icon">&#128220;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-file"></use></svg></div>
                 <h4>Policy Manual</h4>
             </div>
             <div class="quick-action" onclick="navigateTo('resources')">
-                <div class="qa-icon">&#127909;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-video"></use></svg></div>
                 <h4>Videos &amp; Links</h4>
             </div>
             <div class="quick-action" onclick="navigateTo('sops')">
-                <div class="qa-icon">&#9989;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-clipboard"></use></svg></div>
                 <h4>SOPs</h4>
             </div>
             <div class="quick-action" onclick="navigateTo('emergency')">
-                <div class="qa-icon">&#128680;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-alert"></use></svg></div>
                 <h4>Emergency Contacts</h4>
             </div>
             <div class="quick-action" onclick="navigateTo('training')">
-                <div class="qa-icon">&#127847;</div>
+                <div class="qa-icon"><svg class="si-icon"><use href="#i-ice-cream"></use></svg></div>
                 <h4>Ice Cream Machine</h4>
             </div>
         </div>
@@ -933,7 +1040,7 @@
 
         <div class="card-grid">
             <div class="card" data-keywords="shave ice preparation third wave ice science tempering bingsu fluffy snow texture solid block glistening barskorea premium taste flavors syrups toppings">
-                <div class="card-icon bg-cyan">&#127847;</div>
+                <div class="card-icon bg-cyan"><svg class="si-icon"><use href="#i-snowflake"></use></svg></div>
                 <h3>Shave Ice Preparation</h3>
                 <p>Master the SinIceStir shave ice from block to bowl. Our entire product depends on a fine, fluffy, snow-like texture that melts instantly on the tongue.</p>
                 <details class="card-detail">
@@ -970,7 +1077,7 @@
             </div>
 
             <div class="card" data-keywords="ice cream machine soft serve bingsu barskorea suf-400nw-mk 350kg air-cooled nsf ul ce compressor blade alignment hopper sanitizer disassemble weekly daily maintenance startup shutdown swirl count pull duration phase 1 standards">
-                <div class="card-icon bg-pink">&#127846;</div>
+                <div class="card-icon bg-pink"><svg class="si-icon"><use href="#i-ice-cream"></use></svg></div>
                 <h3>Ice Cream Machine Operation</h3>
                 <p>Operate the <strong>BarsKorea SUF-400NW-MK</strong> Commercial Snow Ice Machine (the heart of our operation) and the Soft Serve unit safely and to spec.</p>
                 <details class="card-detail">
@@ -1002,7 +1109,7 @@
             </div>
 
             <div class="card" data-keywords="pos toast point of sale clock in out card only no cash 7shifts tiphaus proservice hawaii onboarding systems setup">
-                <div class="card-icon bg-green">&#128179;</div>
+                <div class="card-icon bg-green"><svg class="si-icon"><use href="#i-credit-card"></use></svg></div>
                 <h3>POS System &amp; Onboarding Systems</h3>
                 <p>Our central operations hub is <strong>Toast POS</strong>. Use it strictly to clock in/out &mdash; SinIceStir is a <strong>card-only operation with no cash handling</strong>.</p>
                 <details class="card-detail">
@@ -1027,7 +1134,7 @@
             </div>
 
             <div class="card" data-keywords="food safety handling hygiene sanitation quat sanitizer wash rinse sanitize handwashing personal hygiene uniform allergens cross contamination">
-                <div class="card-icon bg-yellow">&#128737;</div>
+                <div class="card-icon bg-yellow"><svg class="si-icon"><use href="#i-shield"></use></svg></div>
                 <h3>Food Safety &amp; Handling</h3>
                 <p>Strict adherence to hygiene and food-safety standards is <strong>non-negotiable</strong> for food safety and professionalism. Safety first &mdash; no shortcuts.</p>
                 <details class="card-detail">
@@ -1049,7 +1156,7 @@
             </div>
 
             <div class="card" data-keywords="customer service guest experience brand duality day night persona curation complaint resolution core expectations show up on time respect everyone follow recipes keep it clean ask questions premium taste sinister pronunciation">
-                <div class="card-icon bg-purple">&#128578;</div>
+                <div class="card-icon bg-purple"><svg class="si-icon"><use href="#i-users"></use></svg></div>
                 <h3>Customer Service Excellence</h3>
                 <p>We operate a premium, high-volume concept in Waikīkī. Curation over customization. Every interaction must reflect Premium Taste.</p>
                 <details class="card-detail">
@@ -1087,7 +1194,7 @@
             </div>
 
             <div class="card" data-keywords="opening procedures v3 flow startup prep station checklist morning bingsu soft serve sanitizer syrup station ice block tempering exterior brand readiness">
-                <div class="card-icon bg-blue">&#127749;</div>
+                <div class="card-icon bg-blue"><svg class="si-icon"><use href="#i-sunrise"></use></svg></div>
                 <h3>Opening Procedures &mdash; V3 Flow</h3>
                 <p>Complete the V3 Opening Flow <strong>in sequence</strong>. Prioritize equipment startup and ice prep to ensure rush-readiness.</p>
                 <details class="card-detail">
@@ -1108,7 +1215,7 @@
             </div>
 
             <div class="card" data-keywords="closing procedures shutdown cleaning end of day night phase 1 phase 2 guests exterior systems product sanitation lockup">
-                <div class="card-icon bg-orange">&#127751;</div>
+                <div class="card-icon bg-orange"><svg class="si-icon"><use href="#i-lock"></use></svg></div>
                 <h3>Closing Procedures</h3>
                 <p>Closing runs in two phases &mdash; secure front-of-house first, then preserve product and sanitize equipment. Leave the shop pristine.</p>
                 <details class="card-detail">
@@ -1134,7 +1241,7 @@
             </div>
 
             <div class="card" data-keywords="inventory menu flavors signatures january 2026 rotation shark bait soft launch wanted wish you were here mood ring sharp dressed blackout adult supervision no substitutions fifo">
-                <div class="card-icon bg-green">&#128230;</div>
+                <div class="card-icon bg-green"><svg class="si-icon"><use href="#i-package"></use></svg></div>
                 <h3>Menu Knowledge &amp; Inventory</h3>
                 <p>Know the menu cold and rotate inventory <strong>FIFO</strong>. Our menu is curated, not customized. <em>"No substitutions &mdash; but honestly, you won&rsquo;t want any."</em></p>
                 <details class="card-detail">
@@ -1159,7 +1266,7 @@
             </div>
 
             <div class="card" data-keywords="cleaning sanitizing sanitation deep clean daily weekly quat wash rinse sanitize hygiene workplace safety wet floor robbery comply emergency procedures">
-                <div class="card-icon bg-cyan">&#129529;</div>
+                <div class="card-icon bg-cyan"><svg class="si-icon"><use href="#i-spray"></use></svg></div>
                 <h3>Cleaning, Sanitation &amp; Workplace Safety</h3>
                 <p><strong>Consistency creates quality.</strong> Clean as you go. Your safety comes first &mdash; follow all emergency protocols.</p>
                 <details class="card-detail">
@@ -1221,7 +1328,7 @@
         <div class="accordion" id="policyAccordion">
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#127796;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-users"></use></svg></span>
               <h3>Sinicestir Ice + ProService Hawaii Relationship</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1233,7 +1340,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128188;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-briefcase"></use></svg></span>
               <h3>Employment Practices</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1324,7 +1431,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128176;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-dollar"></use></svg></span>
               <h3>Compensation &amp; Pay</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1371,7 +1478,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#127973;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-heart-pulse"></use></svg></span>
               <h3>Employee Benefits</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1406,7 +1513,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128197;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-calendar"></use></svg></span>
               <h3>Time Off &amp; Leave</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1518,7 +1625,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#9201;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-clock"></use></svg></span>
               <h3>Attendance &amp; Scheduling</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1538,7 +1645,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128085;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-shirt"></use></svg></span>
               <h3>Dress Code &amp; Appearance</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1557,7 +1664,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#129309;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-users"></use></svg></span>
               <h3>Workplace Conduct</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1621,7 +1728,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#129657;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-heart-pulse"></use></svg></span>
               <h3>Safety &amp; Health</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1679,7 +1786,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128274;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-lock"></use></svg></span>
               <h3>Security &amp; Monitoring</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1709,7 +1816,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128241;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-phone"></use></svg></span>
               <h3>Social Media &amp; Confidentiality</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1731,7 +1838,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#9888;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-alert"></use></svg></span>
               <h3>Disciplinary Policy</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1761,7 +1868,7 @@
           </div>
           <div class="accordion-item">
             <div class="accordion-header" onclick="toggleAccordion(this)">
-              <span class="icon">&#128221;</span>
+              <span class="icon"><svg class="si-icon"><use href="#i-file"></use></svg></span>
               <h3>Disclaimer &amp; Acknowledgment</h3>
               <span class="accordion-chevron">&#9660;</span>
             </div>
@@ -1786,10 +1893,10 @@
             <p>Helpful links, how-to videos, and external resources for your role</p>
         </div>
 
-        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">&#127909; How-To Videos</h3>
+        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-video"></use></svg></span>How-To Videos</h3>
         <div class="link-list" style="margin-bottom: 28px;">
             <a href="https://www.youtube.com/playlist?list=PL0BwQM2YkbL5VZ6kS2vxuISLTV7wCG8ZH" target="_blank" class="link-item" data-keywords="ice cream machine soft serve operation how to video playlist">
-                <div class="link-icon bg-pink">&#127846;</div>
+                <div class="link-icon bg-pink"><svg class="si-icon"><use href="#i-ice-cream"></use></svg></div>
                 <div>
                     <h4>Ice Cream Machine - Full Video Playlist</h4>
                     <p>Complete YouTube playlist covering ice cream machine operation, maintenance, and troubleshooting</p>
@@ -1797,7 +1904,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://youtu.be/l8mrNRujMLM?si=wuKNT7jtPjwUb0Bd" target="_blank" class="link-item" data-keywords="shave ice fluffy texture tempered block blade machine maintenance packing flavor training video">
-                <div class="link-icon bg-cyan">&#127847;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-snowflake"></use></svg></div>
                 <div>
                     <h4>Making Quality Shave Ice - IceShavers</h4>
                     <p>How to achieve the perfect fluffy texture using a tempered block of ice and a properly adjusted sharp blade. Covers machine maintenance and packing techniques for even flavor absorption.</p>
@@ -1805,7 +1912,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://youtu.be/bN2Foa5UXQ8?t=91" target="_blank" class="link-item" data-keywords="guy fieri shave ice hawaii maui north shore fluffy authentic hawaiian training video">
-                <div class="link-icon bg-cyan">&#127847;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-snowflake"></use></svg></div>
                 <div>
                     <h4>Guy Fieri - Authentic Hawaiian Shave Ice</h4>
                     <p>Guy Fieri visits a North Shore Maui shop to learn the secrets behind authentic fluffy shave ice and the technique for creating the perfect Hawaiian treat.</p>
@@ -1813,7 +1920,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://support.toasttab.com/en/front-of-house-skills-101" target="_blank" rel="noopener" class="link-item" data-keywords="pos system register toast point of sale front of house skills 101 how to video tutorial">
-                <div class="link-icon bg-green">&#128179;</div>
+                <div class="link-icon bg-green"><svg class="si-icon"><use href="#i-credit-card"></use></svg></div>
                 <div>
                     <h4>POS System Tutorial &mdash; Toast Front-of-House Skills 101</h4>
                     <p>Official Toast walkthrough of point-of-sale operation: orders, payments, refunds, and reports. <em>Open this on a tablet or laptop &mdash; the videos are best watched full-screen.</em></p>
@@ -1821,7 +1928,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="/foodsafety" class="link-item" data-keywords="food safety essentials bonus food handler course certificate $20 reward training serv safe">
-                <div class="link-icon bg-yellow">&#128737;</div>
+                <div class="link-icon bg-yellow"><svg class="si-icon"><use href="#i-shield"></use></svg></div>
                 <div>
                     <h4>Food Safety Essentials &mdash; Approved Course + $20 Bonus</h4>
                     <p>Required food-handler training. Take the approved online course, submit your certificate, and earn the <strong>$20 Food Safety Bonus</strong>. See the dedicated Food Safety page for the approved link and full instructions.</p>
@@ -1830,10 +1937,10 @@
             </a>
         </div>
 
-        <h3 style="font-size: 1rem; margin: 20px 0 12px 0; color: var(--text-light);">&#128737; Food Safety &amp; Sanitation Videos</h3>
+        <h3 style="font-size: 1rem; margin: 20px 0 12px 0; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-shield"></use></svg></span>Food Safety &amp; Sanitation Videos</h3>
         <div class="link-list" style="margin-bottom: 28px;">
             <a href="https://www.nnph.org/programs-and-services/environmental-health/food-protection-services/amc/videos-english/food_contact_surfaces.php" target="_blank" rel="noopener" class="link-item" data-keywords="food contact surfaces sanitation northern nevada public health">
-                <div class="link-icon bg-yellow">&#128737;</div>
+                <div class="link-icon bg-yellow"><svg class="si-icon"><use href="#i-shield"></use></svg></div>
                 <div>
                     <h4>Food Contact Surfaces &mdash; Northern Nevada Public Health</h4>
                     <p>What counts as a food-contact surface and how to keep it safe.</p>
@@ -1841,7 +1948,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=4Ykn485g-Aw" target="_blank" rel="noopener" class="link-item" data-keywords="cleaning sanitizing food contact surfaces youtube">
-                <div class="link-icon bg-cyan">&#129529;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-spray"></use></svg></div>
                 <div>
                     <h4>Cleaning &amp; Sanitizing Food Contact Surfaces</h4>
                     <p>Step-by-step demonstration of the wash &rarr; rinse &rarr; sanitize sequence on food-contact surfaces.</p>
@@ -1849,7 +1956,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=r0sWf0jf6T4" target="_blank" rel="noopener" class="link-item" data-keywords="cleaning sanitizing foodservice daily routine youtube">
-                <div class="link-icon bg-blue">&#129529;</div>
+                <div class="link-icon bg-blue"><svg class="si-icon"><use href="#i-spray"></use></svg></div>
                 <div>
                     <h4>Cleaning and Sanitizing &mdash; Foodservice</h4>
                     <p>Broader cleaning + sanitizing overview for a food-service environment.</p>
@@ -1857,7 +1964,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=kPrupNZ3NM0" target="_blank" rel="noopener" class="link-item" data-keywords="quat sanitizer testing diversey 2-minute drill ep 40">
-                <div class="link-icon bg-pink">&#128300;</div>
+                <div class="link-icon bg-pink"><svg class="si-icon"><use href="#i-test-tube"></use></svg></div>
                 <div>
                     <h4>Quat Sanitizer Testing &mdash; Diversey 2-Minute Drill (Ep 40)</h4>
                     <p>How to verify your Quat sanitizer is at the correct concentration.</p>
@@ -1865,7 +1972,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.webstaurantstore.com/video-11172/how-to-use-sanitizer-test-strips.html" target="_blank" rel="noopener" class="link-item" data-keywords="sanitizer test strips webstaurantstore how to use">
-                <div class="link-icon bg-orange">&#128300;</div>
+                <div class="link-icon bg-orange"><svg class="si-icon"><use href="#i-test-tube"></use></svg></div>
                 <div>
                     <h4>How to Use Sanitizer Test Strips &mdash; WebstaurantStore</h4>
                     <p>Quick demo of dipping, timing, and reading sanitizer test strips correctly.</p>
@@ -1873,7 +1980,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=Ur1DXGGZHxY" target="_blank" rel="noopener" class="link-item" data-keywords="test sanitizer meck environmental health">
-                <div class="link-icon bg-green">&#128300;</div>
+                <div class="link-icon bg-green"><svg class="si-icon"><use href="#i-test-tube"></use></svg></div>
                 <div>
                     <h4>How to Test Your Sanitizer &mdash; Meck Environmental Health</h4>
                     <p>Another walkthrough of sanitizer-strength testing, from a county health department perspective.</p>
@@ -1882,10 +1989,10 @@
             </a>
         </div>
 
-        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);">&#127864; Bar &amp; Beverage Hygiene Videos</h3>
+        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-utensils"></use></svg></span>Bar &amp; Beverage Hygiene Videos</h3>
         <div class="link-list" style="margin-bottom: 28px;">
             <a href="https://www.youtube.com/watch?v=NYvC5G5KF3M" target="_blank" rel="noopener" class="link-item" data-keywords="bar cleaning sanitising youtube">
-                <div class="link-icon bg-purple">&#127864;</div>
+                <div class="link-icon bg-purple"><svg class="si-icon"><use href="#i-utensils"></use></svg></div>
                 <div>
                     <h4>How To Clean &amp; Sanitise In The Bar</h4>
                     <p>Bar-area cleaning and sanitizing routine.</p>
@@ -1893,7 +2000,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=iiZRSQyrQLs" target="_blank" rel="noopener" class="link-item" data-keywords="hygiene bar beverage essentials course youtube">
-                <div class="link-icon bg-purple">&#127864;</div>
+                <div class="link-icon bg-purple"><svg class="si-icon"><use href="#i-utensils"></use></svg></div>
                 <div>
                     <h4>Hygiene in a Bar &mdash; Beverage Essentials Course</h4>
                     <p>Personal and station hygiene standards in a bar environment.</p>
@@ -1902,10 +2009,10 @@
             </a>
         </div>
 
-        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);">&#129482; Shave Ice &amp; Ice-Machine Maintenance Videos</h3>
+        <h3 style="font-size: 1rem; margin: 0 0 12px 0; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-snowflake"></use></svg></span>Shave Ice &amp; Ice-Machine Maintenance Videos</h3>
         <div class="link-list" style="margin-bottom: 28px;">
             <a href="https://www.youtube.com/watch?v=n0Z8ktKzh5c" target="_blank" rel="noopener" class="link-item" data-keywords="swan shave ice machine si-8b maintenance tutorial youtube">
-                <div class="link-icon bg-cyan">&#127847;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-snowflake"></use></svg></div>
                 <div>
                     <h4>Swan Shave Ice Machine SI-8B Maintenance Tutorial</h4>
                     <p>Maintenance and blade-care walkthrough on a comparable shave ice unit. Useful even for our BarsKorea machine &mdash; the principles transfer.</p>
@@ -1913,7 +2020,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.youtube.com/watch?v=VNLcctr-TCg" target="_blank" rel="noopener" class="link-item" data-keywords="true clear ice machine cleaning tui-15-d youtube">
-                <div class="link-icon bg-cyan">&#129482;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-snowflake"></use></svg></div>
                 <div>
                     <h4>True Clear Ice Machine Cleaning (TUI-15-D)</h4>
                     <p>Cleaning procedure for a True ice machine.</p>
@@ -1922,10 +2029,10 @@
             </a>
         </div>
 
-        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">&#128279; Useful Links</h3>
+        <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-link"></use></svg></span>Useful Links</h3>
         <div class="link-list">
             <a href="https://www.7shifts.com" target="_blank" class="link-item" data-keywords="schedule shift work hours timetable 7shifts">
-                <div class="link-icon bg-purple">&#128197;</div>
+                <div class="link-icon bg-purple"><svg class="si-icon"><use href="#i-calendar"></use></svg></div>
                 <div>
                     <h4>7shifts - Employee Scheduling</h4>
                     <p>View your schedule, request time off, and swap shifts</p>
@@ -1933,7 +2040,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.proservice.com/employee-learning-center-your-info/" target="_blank" rel="noopener" class="link-item" data-keywords="payroll pay stub direct deposit paychecks proservice benefits insurance perks discount hr">
-                <div class="link-icon bg-green">&#128176;</div>
+                <div class="link-icon bg-green"><svg class="si-icon"><use href="#i-dollar"></use></svg></div>
                 <div>
                     <h4>ProService &mdash; Pay, Benefits &amp; HR</h4>
                     <p>Pay stubs, tax documents, direct deposit, benefits enrollment, and HR resources. One stop for everything ProService administers on our behalf.</p>
@@ -1941,7 +2048,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://health.hawaii.gov/san/" target="_blank" rel="noopener" class="link-item" data-keywords="health department food permit license inspection hawaii doh sanitation food safety">
-                <div class="link-icon bg-red">&#127973;</div>
+                <div class="link-icon bg-red"><svg class="si-icon"><use href="#i-heart-pulse"></use></svg></div>
                 <div>
                     <h4>Hawaii DOH &mdash; Food Safety Branch</h4>
                     <p>State of Hawaii Department of Health Food Safety Branch. Food-handler permit info, inspection guidelines, and reporting procedures. Oahu line: <a href="tel:18085868000" onclick="event.stopPropagation();">(808) 586-8000</a>.</p>
@@ -1949,7 +2056,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
             <a href="https://www.dropbox.com/scl/fo/v931o87lrf8uh0s0pr2rz/AAeeuROHOphJRMdRb0NvF0A?rlkey=rrfhnyq1v5oqdypzknouk6gfu&dl=0" target="_blank" rel="noopener" class="link-item" data-keywords="documents files dropbox training manuals forms">
-                <div class="link-icon bg-blue">&#128193;</div>
+                <div class="link-icon bg-blue"><svg class="si-icon"><use href="#i-folder"></use></svg></div>
                 <div>
                     <h4>Company Documents (Dropbox)</h4>
                     <p>Training documents, forms, manuals, and other company files.</p>
@@ -1957,7 +2064,7 @@
                 <span class="arrow">&#8250;</span>
             </a>
 <a href="#suggestion-form" onclick="document.getElementById('suggestion-form').scrollIntoView({behavior:'smooth', block:'center'}); document.querySelector('#suggestion-form textarea').focus(); return false;" class="link-item" data-keywords="suggestion feedback idea improvement box anonymous form">
-                <div class="link-icon bg-cyan">&#128172;</div>
+                <div class="link-icon bg-cyan"><svg class="si-icon"><use href="#i-message"></use></svg></div>
                 <div>
                     <h4>Anonymous Suggestion Box</h4>
                     <p>Share ideas for improving operations, products, or the work environment. <strong>Fully anonymous</strong> &mdash; no email, no name, no IP captured. Scroll down to the form below or click here.</p>
@@ -1966,7 +2073,7 @@
             </a>
         </div>
 
-        <h3 id="suggestion-form" style="font-size: 1rem; margin: 28px 0 8px 0; color: var(--text-light);">&#128172; Anonymous Suggestion Box</h3>
+        <h3 id="suggestion-form" style="font-size: 1rem; margin: 28px 0 8px 0; color: var(--text-light);"><span class="heading-icon"><svg class="si-icon"><use href="#i-message"></use></svg></span>Anonymous Suggestion Box</h3>
         <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;"><strong>Fully anonymous.</strong> We do not capture your name, email, or IP address. Be specific &mdash; the more detail you give, the more useful it is.</p>
         <form id="suggestionForm" class="suggestion-form" autocomplete="off" novalidate>
             <label for="sgCategory">Category</label>
@@ -2002,7 +2109,7 @@
         <div class="accordion" id="sopAccordion">
             <div class="accordion-item" data-searchable data-keywords="build standards phase 1 dome shape size geometry silhouette cadence motion shave ice cream syrup toppings condensed milk calibration tolerance">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#127919;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-target"></use></svg></span>
                     <h3>SOP: Build Standards (Phase 1) &mdash; Product Geometry &amp; Cadence</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2046,7 +2153,7 @@
 
             <div class="accordion-item" data-searchable data-keywords="operational artifacts phase 1 calibration silhouette build cards best practices sheet onboarding reference">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#128221;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-file"></use></svg></span>
                     <h3>SOP: Operational Artifacts (Phase 1)</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2068,7 +2175,7 @@
 
             <div class="accordion-item" data-searchable data-keywords="standards discovery open questions shave ice lead phase 1 dome taper sizing pull duration swirl saturation portion drizzle waste rush peak volume">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#10067;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-message"></use></svg></span>
                     <h3>SOP: Standards Discovery &mdash; Open Questions for the Shave Ice Lead</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2113,7 +2220,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#127847;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-snowflake"></use></svg></span>
                     <h3>SOP: Shave Ice Preparation</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2137,7 +2244,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#127846;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-ice-cream"></use></svg></span>
                     <h3>SOP: Ice Cream Machine - Daily Operation</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2160,7 +2267,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#128179;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-credit-card"></use></svg></span>
                     <h3>SOP: POS System - Processing Orders</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2183,7 +2290,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#127749;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-sunrise"></use></svg></span>
                     <h3>SOP: Store Opening Procedure</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2207,7 +2314,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#127751;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-lock"></use></svg></span>
                     <h3>SOP: Store Closing Procedure</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2232,7 +2339,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#128721;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-alert"></use></svg></span>
                     <h3>SOP: Handling Customer Complaints</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2253,7 +2360,7 @@
 
             <div class="accordion-item">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">&#128167;</span>
+                    <span class="icon"><svg class="si-icon"><use href="#i-droplet"></use></svg></span>
                     <h3>SOP: Spill &amp; Cleanup Procedure</h3>
                     <span class="accordion-chevron">&#9660;</span>
                 </div>
@@ -2281,7 +2388,7 @@
         </div>
 
         <div class="emergency-banner">
-            <div class="em-icon">&#9888;</div>
+            <div class="em-icon"><svg class="si-icon"><use href="#i-alert"></use></svg></div>
             <div>
                 <h3>In case of a life-threatening emergency, call 911 immediately.</h3>
                 <p>Then notify your manager as soon as it is safe to do so.</p>
@@ -2290,65 +2397,65 @@
 
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="contact-type text-red">&#128680; Emergency Services</div>
+                <div class="contact-type text-red"><svg class="si-icon"><use href="#i-alert"></use></svg> Emergency Services</div>
                 <h4>Police / Fire / Ambulance</h4>
-                <div class="phone"><a href="tel:911">&#128222; 911</a></div>
+                <div class="phone"><a href="tel:911"><svg class="si-icon"><use href="#i-phone"></use></svg> 911</a></div>
                 <div class="note">For all life-threatening emergencies</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-red">&#128680; Poison Control</div>
+                <div class="contact-type text-red"><svg class="si-icon"><use href="#i-alert"></use></svg> Poison Control</div>
                 <h4>National Poison Control Center</h4>
-                <div class="phone"><a href="tel:18002221222">&#128222; 1-800-222-1222</a></div>
+                <div class="phone"><a href="tel:18002221222"><svg class="si-icon"><use href="#i-phone"></use></svg> 1-800-222-1222</a></div>
                 <div class="note">For chemical exposure or ingestion emergencies</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-blue">&#128100; Honolulu Police (Non-Emergency)</div>
+                <div class="contact-type text-blue"><svg class="si-icon"><use href="#i-users"></use></svg> Honolulu Police (Non-Emergency)</div>
                 <h4>HPD Non-Emergency Line</h4>
-                <div class="phone"><a href="tel:18085293111">&#128222; (808) 529-3111</a></div>
+                <div class="phone"><a href="tel:18085293111"><svg class="si-icon"><use href="#i-phone"></use></svg> (808) 529-3111</a></div>
                 <div class="note">For incidents that aren&rsquo;t life-threatening &mdash; suspicious activity, after-the-fact theft, noise complaints. Call 911 instead for anything in progress.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-blue">&#128188; General Manager</div>
+                <div class="contact-type text-blue"><svg class="si-icon"><use href="#i-briefcase"></use></svg> General Manager</div>
                 <h4>Drew Dumas &mdash; General Manager</h4>
-                <div class="phone"><a href="tel:+15089269093">&#128222; (508) 926-9093</a></div>
+                <div class="phone"><a href="tel:+15089269093"><svg class="si-icon"><use href="#i-phone"></use></svg> (508) 926-9093</a></div>
                 <div class="note">Day-to-day operations, staff issues, and the first call for anything that isn&rsquo;t a 911 emergency. Email: <a href="mailto:DrewD@tikisgrill.com">DrewD@tikisgrill.com</a></div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-green">&#127973; Hawaii Food Safety Branch</div>
+                <div class="contact-type text-green"><svg class="si-icon"><use href="#i-heart-pulse"></use></svg> Hawaii Food Safety Branch</div>
                 <h4>HI DOH Food Safety &mdash; Oahu</h4>
-                <div class="phone"><a href="tel:18085868000">&#128222; (808) 586-8000</a></div>
+                <div class="phone"><a href="tel:18085868000"><svg class="si-icon"><use href="#i-phone"></use></svg> (808) 586-8000</a></div>
                 <div class="note">Food-safety concerns, restaurant inspection follow-ups, and food-handler permit info. For all-island info, the DOH general line is (808) 586-4400.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-yellow">&#128295; Equipment Service</div>
+                <div class="contact-type text-yellow"><svg class="si-icon"><use href="#i-wrench"></use></svg> Equipment Service</div>
                 <h4>BarsKorea (Max Kong / 공민식) &mdash; Bingsu / Soft-Serve Service</h4>
-                <div class="phone"><a href="tel:+821062753757">&#128222; +82 10-6275-3757</a> &middot; office <a href="tel:+82325813466">+82 32-581-3466</a></div>
+                <div class="phone"><a href="tel:+821062753757"><svg class="si-icon"><use href="#i-phone"></use></svg> +82 10-6275-3757</a> &middot; office <a href="tel:+82325813466">+82 32-581-3466</a></div>
                 <div class="note">BarsKorea SUF-400NW-MK manufacturer (Incheon, South Korea). Email <a href="mailto:info@barskorea.com">info@barskorea.com</a>. <strong>Notify the General Manager first</strong> for any equipment breakdown &mdash; do not attempt internal repairs. <a href="https://www.bkkoreafnb.com" target="_blank" rel="noopener">bkkoreafnb.com</a></div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-yellow">&#9889; Hawaiian Electric (HECO)</div>
+                <div class="contact-type text-yellow"><svg class="si-icon"><use href="#i-bolt"></use></svg> Hawaiian Electric (HECO)</div>
                 <h4>Power Outage / Downed Line</h4>
-                <div class="phone"><a href="tel:18553041212">&#128222; 1-855-304-1212</a></div>
+                <div class="phone"><a href="tel:18553041212"><svg class="si-icon"><use href="#i-phone"></use></svg> 1-855-304-1212</a></div>
                 <div class="note">24-hour outage reporting. For a downed line: stay back, keep customers back, and call 911 first.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-blue">&#128167; Board of Water Supply</div>
+                <div class="contact-type text-blue"><svg class="si-icon"><use href="#i-droplet"></use></svg> Board of Water Supply</div>
                 <h4>Honolulu BWS 24-hour</h4>
-                <div class="phone"><a href="tel:18087485000">&#128222; (808) 748-5000</a></div>
+                <div class="phone"><a href="tel:18087485000"><svg class="si-icon"><use href="#i-phone"></use></svg> (808) 748-5000</a></div>
                 <div class="note">Water-main breaks, no water, low pressure, or quality concerns. Press <strong>1</strong> at the prompt.</div>
             </div>
 
             <div class="contact-card">
-                <div class="contact-type text-red">&#128293; Hawaii Gas</div>
+                <div class="contact-type text-red"><svg class="si-icon"><use href="#i-flame"></use></svg> Hawaii Gas</div>
                 <h4>Gas Leak / Emergency &mdash; Oahu</h4>
-                <div class="phone"><a href="tel:18085260066">&#128222; (808) 526-0066</a></div>
+                <div class="phone"><a href="tel:18085260066"><svg class="si-icon"><use href="#i-phone"></use></svg> (808) 526-0066</a></div>
                 <div class="note"><strong>Evacuate first.</strong> If you smell gas: get everyone out, leave doors open, do not use phones or switches inside, then call from outside.</div>
             </div>
         </div>
@@ -2361,20 +2468,267 @@
             <div class="accordion" id="emergencyAccordion">
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="icon">&#128293;</span>
+                        <span class="icon"><svg class="si-icon"><use href="#i-wind"></use></svg></span>
+                        <h3>Hurricane Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="hurricane storm tropical cyclone pre storm prep shutdown boarding food liquor protection insurance reopening checklist staff communication">
+                        <div class="accordion-body">
+                            <h4>Pre-storm prep</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Manager on duty monitors <a href="https://www.weather.gov/hfo/watchwarn" target="_blank" rel="noopener">NWS Honolulu watches and warnings</a>, HNL Alert, local emergency broadcasts, and ownership/GM direction.</li>
+                                <li><span class="bullet">2.</span> Charge phones, tablets, radios, flashlights, and backup batteries. Print the current staff roster, schedule, vendor list, insurance list, and this emergency page.</li>
+                                <li><span class="bullet">3.</span> Photograph the store, equipment, food storage, liquor storage, outdoor furniture, signage, windows, and high-value inventory before shutdown.</li>
+                                <li><span class="bullet">4.</span> Pull in exterior tables, chairs, signs, loose decor, umbrellas, trash cans, and anything that can become windborne.</li>
+                                <li><span class="bullet">5.</span> Top off sanitizer, gloves, trash bags, towels, bottled water for staff, first-aid supplies, and cleaning supplies.</li>
+                            </ul>
+                            <h4>Shutdown criteria</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Begin controlled shutdown when a Tropical Storm Warning, Hurricane Watch, Hurricane Warning, evacuation order, road closure risk, hotel/property order, or ownership/GM direction makes normal operations unsafe.</li>
+                                <li><span class="bullet">2.</span> Stop accepting new orders early enough to close POS, secure product, board/cover openings, and let staff travel safely before conditions deteriorate.</li>
+                                <li><span class="bullet">3.</span> If power flickers repeatedly, water intrusion begins, public transit/roads become unreliable, or staff cannot safely get home, close immediately with manager approval.</li>
+                            </ul>
+                            <h4>Food and liquor protection</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Move frozen product and ice blocks to the coldest freezers. Keep refrigerator/freezer doors closed and tape "Do Not Open" notes on doors.</li>
+                                <li><span class="bullet">2.</span> Move syrups, dairy, soft-serve mix, fruit, toppings, and prepared items off the floor and away from windows or exterior walls.</li>
+                                <li><span class="bullet">3.</span> Seal open containers. Bag or bin dry goods. Label any item that may need temperature verification after power loss.</li>
+                                <li><span class="bullet">4.</span> Lock liquor in approved storage. Count high-value bottles if time permits, photograph shelves, and store inventory sheets with the manager packet.</li>
+                                <li><span class="bullet">5.</span> After any outage or flooding, do not sell product until management confirms time/temperature safety and contamination risk.</li>
+                            </ul>
+                            <h4>Boarding up and securing the space</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Follow property/landlord instructions for storm panels, plywood, shutters, or window protection. Do not improvise unsafe ladder work.</li>
+                                <li><span class="bullet">2.</span> Protect POS tablets, card readers, printers, routers, and small electronics in plastic bins or elevated interior storage.</li>
+                                <li><span class="bullet">3.</span> Unplug nonessential equipment after proper shutdown. Leave refrigeration powered unless management instructs otherwise.</li>
+                                <li><span class="bullet">4.</span> Confirm doors are locked, alarms set if available, and no staff member remains alone during final lockup.</li>
+                            </ul>
+                            <h4>Staff communications</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> GM or assigned manager sends one clear update by 7shifts/text: operating status, expected closure time, staff release plan, and next update time.</li>
+                                <li><span class="bullet">2.</span> Staff reply with "SAFE" after they reach home/shelter. Manager tracks responses on the roster.</li>
+                                <li><span class="bullet">3.</span> No employee should return to the store until management sends a return message.</li>
+                            </ul>
+                            <h4>Reopening checklist</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Manager inspects exterior first: downed lines, broken glass, flooding, structural damage, blocked exits, odor of gas, or unsafe debris.</li>
+                                <li><span class="bullet">2.</span> Photograph damage before cleanup. Report urgent hazards to 911, property management, utility provider, and GM as appropriate.</li>
+                                <li><span class="bullet">3.</span> Check power, water, refrigeration temperatures, POS/internet, equipment condition, sanitizer, pest intrusion, and food/liquor security.</li>
+                                <li><span class="bullet">4.</span> Discard any food exposed to floodwater, sewage, broken glass, chemical contamination, or unsafe temperatures.</li>
+                                <li><span class="bullet">5.</span> Reopen only after management confirms the space is safe, staffing is adequate, utilities are stable, and product is safe to serve.</li>
+                            </ul>
+                            <h4>Insurance contacts and claim packet</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Primary internal contact: Drew Dumas, General Manager, <a href="tel:+15089269093">(508) 926-9093</a>, <a href="mailto:DrewD@tikisgrill.com">DrewD@tikisgrill.com</a>.</li>
+                                <li><span class="bullet">2.</span> Fill in before storm season: property/liability carrier, broker or agent, policy number, claims phone, claims email, landlord/property emergency contact, and preferred restoration vendor.</li>
+                                <li><span class="bullet">3.</span> Claim packet: before/after photos, product loss list, equipment serial numbers, closure dates/times, staff roster, repair invoices, discarded food/liquor log, and utility outage notes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-waves"></use></svg></span>
+                        <h3>Tsunami Evacuation Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="tsunami evacuation high ground warning sources PTWC siren assembly point accountability roster return criteria">
+                        <div class="accordion-body">
+                            <h4>Warning sources</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Official tsunami alerts for Hawaii come from the <a href="https://www.tsunami.gov/" target="_blank" rel="noopener">Pacific Tsunami Warning Center</a>. Honolulu DEM and county officials issue evacuation and all-clear instructions.</li>
+                                <li><span class="bullet">2.</span> Monitor HNL Alert, Wireless Emergency Alerts, outdoor warning sirens, local radio/TV, NWS Honolulu, and property/security announcements.</li>
+                                <li><span class="bullet">3.</span> Natural warning: if you feel strong or long shaking, or the ocean suddenly recedes or surges, evacuate immediately without waiting for an official message.</li>
+                            </ul>
+                            <h4>Shutdown trigger</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Evacuate immediately for a Tsunami Warning, evacuation order, official instruction from property/security, or natural warning signs.</li>
+                                <li><span class="bullet">2.</span> For a Tsunami Watch or Advisory, stop opening new checks, prepare for fast closure, confirm staff roster, and wait for GM/property direction unless conditions require immediate movement.</li>
+                                <li><span class="bullet">3.</span> Do not delay evacuation for food, liquor, cleaning, sales, or closing paperwork.</li>
+                            </ul>
+                            <h4>Route to high ground</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Leave the tsunami evacuation zone by the posted Waikiki evacuation route. Move mauka/inland and uphill, away from canals, beaches, harbor edges, and ground-floor parking areas.</li>
+                                <li><span class="bullet">2.</span> If vertical evacuation is directed by authorities or property/security, move to the designated upper level in a reinforced concrete building.</li>
+                                <li><span class="bullet">3.</span> Staff assist guests only while moving in the same safe direction. Do not return for belongings.</li>
+                            </ul>
+                            <h4>Staff and guest assembly point</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Primary assembly point: designated high-ground or vertical-evacuation location assigned by the property/GM. Add the exact location here once confirmed.</li>
+                                <li><span class="bullet">2.</span> Backup assembly point: second inland/high-ground location outside the evacuation zone. Add exact location and cross streets here.</li>
+                                <li><span class="bullet">3.</span> Manager keeps staff together when possible, but life safety comes first. If separated, staff text the manager with name, location, and SAFE.</li>
+                            </ul>
+                            <h4>Accountability roster</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Manager carries or screenshots the shift roster before leaving if it is safe and immediate.</li>
+                                <li><span class="bullet">2.</span> At assembly, mark each staff member: present, self-evacuated confirmed, missing, injured, or sent home.</li>
+                                <li><span class="bullet">3.</span> Report missing or injured people to 911/emergency officials and the GM. Do not send staff back into the evacuation zone to search.</li>
+                            </ul>
+                            <h4>Return criteria</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Return only after the official all-clear from Honolulu emergency management/property officials and GM approval.</li>
+                                <li><span class="bullet">2.</span> Tsunami danger can continue for hours after the first wave. Do not return because the water "looks normal."</li>
+                                <li><span class="bullet">3.</span> On return, treat all floodwater and debris as contaminated. Begin the reopening checklist before serving guests.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-gauge"></use></svg></span>
+                        <h3>Earthquake Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="earthquake drop cover hold aftershock gas water structural damage">
+                        <div class="accordion-body">
+                            <h4>During shaking</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Drop, Cover, and Hold On. Get under a sturdy table/counter or against an interior wall away from glass, shelves, and hanging fixtures.</li>
+                                <li><span class="bullet">2.</span> Do not run outside during shaking. Keep guests away from windows, bottles, and equipment that may fall.</li>
+                                <li><span class="bullet">3.</span> If near hot equipment or chemicals, move only enough to avoid immediate burns or spills, then protect your head and neck.</li>
+                            </ul>
+                            <h4>After shaking stops</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Check injuries. Call 911 for serious injuries. Expect aftershocks.</li>
+                                <li><span class="bullet">2.</span> Check for gas smell, fire, broken glass, falling hazards, water leaks, damaged electrical cords, and blocked exits.</li>
+                                <li><span class="bullet">3.</span> If gas is smelled, follow the Gas Leak Plan and evacuate. If building damage is visible, evacuate and keep clear of the exterior.</li>
+                                <li><span class="bullet">4.</span> Shut down service until management confirms utilities, structure, equipment, and food safety.</li>
+                                <li><span class="bullet">5.</span> Document damage with photos before cleanup if it is safe to do so.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-bell"></use></svg></span>
+                        <h3>Severe Weather Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="severe weather thunderstorm high wind lightning heavy rain warning watch shelter">
+                        <div class="accordion-body">
+                            <h4>Warning sources and triggers</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Monitor NWS Honolulu, HNL Alert, Wireless Emergency Alerts, local radio/TV, property/security announcements, and visible conditions.</li>
+                                <li><span class="bullet">2.</span> A Severe Thunderstorm Warning, Flash Flood Warning, high wind conditions, lightning nearby, property closure order, or unsafe travel conditions may trigger immediate service pause or closure.</li>
+                                <li><span class="bullet">3.</span> Move guests and staff away from windows and exterior doors. Do not use outdoor seating or exterior signage during lightning/high wind.</li>
+                            </ul>
+                            <h4>Actions</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Bring in loose exterior items if it can be done before conditions become dangerous.</li>
+                                <li><span class="bullet">2.</span> Protect electronics from leaks. Place wet-floor signs where water is tracked in.</li>
+                                <li><span class="bullet">3.</span> Pause service if staff cannot safely move between work areas or if water intrusion threatens food, equipment, or guests.</li>
+                                <li><span class="bullet">4.</span> Resume only after the warning has passed, the space is dry/safe, and management approves.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-bolt"></use></svg></span>
+                        <h3>Power Outage Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="power outage HECO refrigeration freezer POS outage temperature logs">
+                        <div class="accordion-body">
+                            <h4>Immediate actions</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Stay calm, pause new orders, and keep guests informed. Use flashlights, not candles.</li>
+                                <li><span class="bullet">2.</span> Check for broader hazards: smoke, electrical smell, downed lines, tripped breakers, water intrusion, or elevator/stairwell issues.</li>
+                                <li><span class="bullet">3.</span> Call Hawaiian Electric at <a href="tel:18553041212">1-855-304-1212</a> to report/confirm outage. Call 911 first for downed lines or fire.</li>
+                                <li><span class="bullet">4.</span> Keep refrigerators and freezers closed. Start an outage log with time power failed, equipment affected, and temperatures if safe to read.</li>
+                            </ul>
+                            <h4>Operations decision</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> If POS/internet is down, stop card transactions. SinIceStir is card-only; do not create informal cash handling.</li>
+                                <li><span class="bullet">2.</span> Close if lighting, refrigeration, ventilation, water, or safe payment processing cannot support safe service.</li>
+                                <li><span class="bullet">3.</span> After power returns, verify refrigeration temperatures, equipment startup, POS/internet, water, and food safety before reopening.</li>
+                                <li><span class="bullet">4.</span> Discard time/temperature-controlled food if safety cannot be verified. When in doubt, hold product for manager decision or discard.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-droplet"></use></svg></span>
+                        <h3>Flood and Waikiki Flood Warning Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="flood flash flood Waikiki flood warnings Ala Wai ponding water intrusion turn around dont drown">
+                        <div class="accordion-body">
+                            <h4>Warning sources</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Monitor <a href="https://www.weather.gov/hfo/watchwarn" target="_blank" rel="noopener">NWS Honolulu watches/warnings/advisories</a>, HNL Alert, Wireless Emergency Alerts, local radio/TV, and property/security notices.</li>
+                                <li><span class="bullet">2.</span> Treat Flash Flood Warning, Flood Advisory affecting Waikiki/Honolulu, road closure, rising water near the store, or property order as a shutdown trigger.</li>
+                                <li><span class="bullet">3.</span> Waikiki-specific concerns include ponding at low spots, fast drainage changes near canals, blocked storm drains, garage/stair flooding, and contaminated water entering guest or prep areas.</li>
+                            </ul>
+                            <h4>Actions</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Do not let staff or guests walk/drive through floodwater. Turn around, do not drown.</li>
+                                <li><span class="bullet">2.</span> Stop service if water enters the store, reaches electrical equipment, threatens exits, or contaminates food/contact surfaces.</li>
+                                <li><span class="bullet">3.</span> Move product, chemicals, paper goods, and electronics off the floor. Keep chemicals separate from food.</li>
+                                <li><span class="bullet">4.</span> Shut off affected equipment only if it is safe and dry to do so. Never touch electrical gear while standing in water.</li>
+                                <li><span class="bullet">5.</span> Photograph water line and damage from a safe location. Notify GM, property/security, and utilities as needed.</li>
+                            </ul>
+                            <h4>Return and cleanup</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Reopen only after water recedes, electrical hazards are cleared, floors are cleaned/sanitized/dry, and management approves.</li>
+                                <li><span class="bullet">2.</span> Discard food, packaging, single-use items, and ice exposed to floodwater or splash contamination.</li>
+                                <li><span class="bullet">3.</span> Wash, rinse, and sanitize all affected food-contact surfaces before service resumes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-flame"></use></svg></span>
+                        <h3>Gas Leak Plan</h3>
+                        <span class="accordion-chevron">&#9660;</span>
+                    </div>
+                    <div class="accordion-content" data-keywords="gas leak Hawaii Gas smell rotten egg evacuate no switches no phones">
+                        <div class="accordion-body">
+                            <h4>Recognize and evacuate</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> If you smell gas, hear hissing, see damaged gas equipment, or feel symptoms such as dizziness/nausea near gas equipment, evacuate immediately.</li>
+                                <li><span class="bullet">2.</span> Do not use phones, light switches, outlets, appliances, POS devices, radios, or anything that could spark while inside.</li>
+                                <li><span class="bullet">3.</span> Do not turn equipment on/off. Do not search for the leak. Do not relight pilots.</li>
+                                <li><span class="bullet">4.</span> If safe while exiting, leave doors open to vent. Move guests and staff well away from the building.</li>
+                            </ul>
+                            <h4>Call and account</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Once outside and away from the odor, call 911 for immediate danger, then Hawaii Gas Oahu emergency line at <a href="tel:18085260066">(808) 526-0066</a>.</li>
+                                <li><span class="bullet">2.</span> Manager takes staff accountability and keeps everyone away from entrances, vents, alleys, and utility areas.</li>
+                                <li><span class="bullet">3.</span> Notify GM and property/security from outside the building.</li>
+                            </ul>
+                            <h4>Return criteria</h4>
+                            <ul>
+                                <li><span class="bullet">1.</span> Re-enter only after fire department, Hawaii Gas, property/security, or qualified service personnel clears the space.</li>
+                                <li><span class="bullet">2.</span> Do not resume service until equipment is confirmed safe, ventilation is normal, and management approves reopening.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="icon"><svg class="si-icon"><use href="#i-flame"></use></svg></span>
                         <h3>Fire Emergency</h3>
                         <span class="accordion-chevron">&#9660;</span>
                     </div>
-                    <div class="accordion-content">
+                    <div class="accordion-content" data-keywords="fire extinguisher evacuate PASS 911 smoke alarm">
                         <div class="accordion-body">
                             <ul>
-                                <li><span class="bullet">1.</span> Alert everyone in the store: shout "FIRE!" and activate the fire alarm if available.</li>
-                                <li><span class="bullet">2.</span> Evacuate all customers and staff through the nearest exit. Do NOT use elevators.</li>
+                                <li><span class="bullet">1.</span> Alert everyone: shout "FIRE" and activate alarm if available.</li>
+                                <li><span class="bullet">2.</span> Evacuate guests and staff through the nearest safe exit. Do not use elevators.</li>
                                 <li><span class="bullet">3.</span> Call 911 once safely outside.</li>
-                                <li><span class="bullet">4.</span> If the fire is small and contained, trained staff may use a fire extinguisher (PASS method: Pull, Aim, Squeeze, Sweep).</li>
-                                <li><span class="bullet">5.</span> Meet at the designated assembly point (parking lot, across street, etc.).</li>
-                                <li><span class="bullet">6.</span> Do NOT re-enter the building until cleared by fire department.</li>
-                                <li><span class="bullet">7.</span> Contact the store owner/manager immediately.</li>
+                                <li><span class="bullet">4.</span> Only trained staff may use an extinguisher on a small, contained fire with a clear exit behind them. PASS: Pull, Aim, Squeeze, Sweep.</li>
+                                <li><span class="bullet">5.</span> Meet at the designated assembly point and account for staff. Do not re-enter until cleared by fire department.</li>
+                                <li><span class="bullet">6.</span> Notify GM and document damage only after life safety is handled.</li>
                             </ul>
                         </div>
                     </div>
@@ -2382,19 +2736,18 @@
 
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="icon">&#129656;</span>
+                        <span class="icon"><svg class="si-icon"><use href="#i-bandage"></use></svg></span>
                         <h3>Medical Emergency / Injury</h3>
                         <span class="accordion-chevron">&#9660;</span>
                     </div>
-                    <div class="accordion-content">
+                    <div class="accordion-content" data-keywords="medical injury first aid poison control incident report allergic reaction">
                         <div class="accordion-body">
                             <ul>
-                                <li><span class="bullet">1.</span> Assess the situation. If serious, call 911 immediately.</li>
+                                <li><span class="bullet">1.</span> Call 911 for serious injury, chest pain, trouble breathing, loss of consciousness, severe bleeding, seizure, head injury, or suspected overdose/poisoning.</li>
                                 <li><span class="bullet">2.</span> Do not move an injured person unless they are in immediate danger.</li>
-                                <li><span class="bullet">3.</span> Retrieve the first aid kit (located near the office/break area).</li>
-                                <li><span class="bullet">4.</span> For minor cuts/burns: clean the wound, apply bandage, and document in the incident log.</li>
-                                <li><span class="bullet">5.</span> For allergic reactions: ask the person if they have an EpiPen and help them use it if needed. Call 911.</li>
-                                <li><span class="bullet">6.</span> Notify the manager on duty and complete an incident report.</li>
+                                <li><span class="bullet">3.</span> Retrieve first-aid kit and use gloves. For chemical exposure or ingestion, call Poison Control at <a href="tel:18002221222">1-800-222-1222</a>.</li>
+                                <li><span class="bullet">4.</span> For allergic reactions, ask whether the person has an epinephrine auto-injector and help them use it if requested. Call 911.</li>
+                                <li><span class="bullet">5.</span> Notify manager/GM and complete an incident report as soon as possible.</li>
                             </ul>
                         </div>
                     </div>
@@ -2402,60 +2755,19 @@
 
                 <div class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="icon">&#127754;</span>
-                        <h3>Severe Weather / Natural Disaster</h3>
-                        <span class="accordion-chevron">&#9660;</span>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <ul>
-                                <li><span class="bullet">1.</span> Monitor weather alerts on your phone or the store radio.</li>
-                                <li><span class="bullet">2.</span> If a severe weather warning is issued, move all customers and staff to the safest area of the building (interior room, away from windows).</li>
-                                <li><span class="bullet">3.</span> Secure any outdoor items (signs, chairs, etc.) if time permits.</li>
-                                <li><span class="bullet">4.</span> Do not leave the building during severe weather.</li>
-                                <li><span class="bullet">5.</span> Contact the store owner for guidance on whether to close early.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="icon">&#128274;</span>
+                        <span class="icon"><svg class="si-icon"><use href="#i-lock"></use></svg></span>
                         <h3>Robbery / Security Threat</h3>
                         <span class="accordion-chevron">&#9660;</span>
                     </div>
-                    <div class="accordion-content">
+                    <div class="accordion-content" data-keywords="robbery security threat violence suspicious person lockdown police">
                         <div class="accordion-body">
                             <ul>
-                                <li><span class="bullet">1.</span> Stay calm. Do NOT resist or try to be a hero.</li>
-                                <li><span class="bullet">2.</span> Comply with the robber's demands. Your safety is more important than money.</li>
-                                <li><span class="bullet">3.</span> Try to observe and remember details: appearance, clothing, voice, direction they left.</li>
-                                <li><span class="bullet">4.</span> Call 911 as soon as it is safe to do so.</li>
-                                <li><span class="bullet">5.</span> Lock the doors and do not let anyone leave (they may be witnesses).</li>
-                                <li><span class="bullet">6.</span> Do not touch anything the robber may have touched.</li>
-                                <li><span class="bullet">7.</span> Contact the store owner immediately.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <span class="icon">&#9889;</span>
-                        <h3>Power Outage</h3>
-                        <span class="accordion-chevron">&#9660;</span>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <ul>
-                                <li><span class="bullet">1.</span> Remain calm and reassure customers.</li>
-                                <li><span class="bullet">2.</span> Use flashlights (stored in the office) - do NOT use candles.</li>
-                                <li><span class="bullet">3.</span> Do NOT open freezers or refrigerators unless absolutely necessary (keep cold air in).</li>
-                                <li><span class="bullet">4.</span> If POS is down, do not accept card payments. Cash only or pause service.</li>
-                                <li><span class="bullet">5.</span> Contact the utility company and the store owner.</li>
-                                <li><span class="bullet">6.</span> If power is not restored within 1 hour, consult manager about closing the store.</li>
-                                <li><span class="bullet">7.</span> Check food temperatures once power is restored. Discard any items above safe temperature thresholds.</li>
+                                <li><span class="bullet">1.</span> Stay calm. Do not resist, chase, argue, or try to be a hero.</li>
+                                <li><span class="bullet">2.</span> Comply with demands. Human safety is more important than property.</li>
+                                <li><span class="bullet">3.</span> Observe details if you can safely: clothing, voice, direction of travel, vehicle, and weapon description.</li>
+                                <li><span class="bullet">4.</span> Call 911 as soon as it is safe. Lock doors if safe and preserve the scene.</li>
+                                <li><span class="bullet">5.</span> Do not touch anything the person may have touched. Ask witnesses to remain nearby for police if safe.</li>
+                                <li><span class="bullet">6.</span> Notify GM after calling 911.</li>
                             </ul>
                         </div>
                     </div>
@@ -2672,7 +2984,7 @@
                     title: card.querySelector('h4').textContent,
                     desc: card.querySelector('.note') ? card.querySelector('.note').textContent : '',
                     section: 'emergency',
-                    icon: '&#128680;'
+                    icon: '<svg class="si-icon"><use href="#i-alert"></use></svg>'
                 });
             }
         });
@@ -2681,7 +2993,7 @@
         searchResultsInfo.textContent = results.length + ' result' + (results.length !== 1 ? 's' : '') + ' for "' + this.value.trim() + '"';
 
         if (results.length === 0) {
-            searchResultsList.innerHTML = '<div class="no-results"><div class="nr-icon">&#128269;</div><h3>No results found</h3><p>Try a different search term</p></div>';
+            searchResultsList.innerHTML = '<div class="no-results"><div class="nr-icon"><svg class="si-icon"><use href="#i-search"></use></svg></div><h3>No results found</h3><p>Try a different search term</p></div>';
         } else {
             searchResultsList.innerHTML = results.map(r =>
                 '<div class="link-item" style="cursor:pointer" onclick="navigateTo(\'' + r.section + '\')">' +
